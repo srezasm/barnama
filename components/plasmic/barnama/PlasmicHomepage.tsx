@@ -68,6 +68,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: v57deDbCRSiUfTDw1tW741/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: Vr6w4OQ1QIr8/css
 
+import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: srpZpCYAa_Ql/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: Hw4uH64OkDA1/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3EgpshlPs7dM/icon
 
@@ -89,6 +90,7 @@ export type PlasmicHomepage__OverridesType = {
   section?: Flex__<"section">;
   h1?: Flex__<"h1">;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  svg?: Flex__<"svg">;
   freeBox?: Flex__<"div">;
   fragmentInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
@@ -154,7 +156,19 @@ function PlasmicHomepage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "https://www.paziresh24.com/dashboard/apps/barnama/share/"
+          (() => {
+            try {
+              return $state.fragmentApiRequest.data.short_url;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -190,6 +204,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_tokens,
             sty.root
           )}
+          dir={"rtl"}
           onLoad={async event => {
             const $steps = {};
 
@@ -247,19 +262,44 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.text__bGukl
                   )}
                 >
-                  {"Error fetching data"}
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.fragmentApiRequest.error.message;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "Error fetching data";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </div>
               }
               loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qLXa
-                  )}
-                >
-                  {"Loading..."}
-                </div>
+                <React.Fragment>
+                  <Icon3Icon
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    className={classNames(projectcss.all, sty.svg)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qLXa
+                    )}
+                  >
+                    {
+                      "\u062f\u0631\u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a .."
+                    }
+                  </div>
+                </React.Fragment>
               }
               method={"GET"}
               onError={generateStateOnChangeProp($state, [
@@ -291,115 +331,92 @@ function PlasmicHomepage__RenderFunc(props: {
               })()}
               url={"https://srezas.app.n8n.cloud/webhook/shortener"}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__r3Gl
-                )}
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"freeBox"}
+                data-plasmic-override={overrides.freeBox}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox)}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.fragmentApiRequest.data.id;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
+                <Input
+                  data-plasmic-name={"fragmentInput"}
+                  data-plasmic-override={overrides.fragmentInput}
+                  attributes={{ dir: "ltr" }}
+                  className={classNames("__wab_instance", sty.fragmentInput)}
+                  disabled={true}
+                  onChange={generateStateOnChangeProp($state, [
+                    "fragmentInput",
+                    "value"
+                  ])}
+                  placeholder={``}
+                  type={"text"}
+                  value={generateStateValueProp($state, [
+                    "fragmentInput",
+                    "value"
+                  ])}
+                />
+
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={"softBlue"}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return $$.copyToClipboard(
+                                $state.fragmentInput.value
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
-                  })()}
-                </React.Fragment>
-              </div>
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f.",
+                              "top-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                  size={"compact"}
+                >
+                  {"\u06a9\u067e\u06cc"}
+                </Button>
+              </Stack__>
             </ApiRequest>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox)}
-            >
-              <Input
-                data-plasmic-name={"fragmentInput"}
-                data-plasmic-override={overrides.fragmentInput}
-                attributes={{ dir: "ltr" }}
-                className={classNames("__wab_instance", sty.fragmentInput)}
-                disabled={true}
-                onChange={generateStateOnChangeProp($state, [
-                  "fragmentInput",
-                  "value"
-                ])}
-                placeholder={``}
-                type={"text"}
-                value={generateStateValueProp($state, [
-                  "fragmentInput",
-                  "value"
-                ])}
-              />
-
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={"softBlue"}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return $$.copyToClipboard(
-                              $state.fragmentInput.value
-                            );
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f.",
-                            "top-center"
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-                }}
-                size={"compact"}
-              >
-                {"\u06a9\u067e\u06cc"}
-              </Button>
-            </Stack__>
           </section>
         </div>
       </div>
@@ -413,6 +430,7 @@ const PlasmicDescendants = {
     "section",
     "h1",
     "fragmentApiRequest",
+    "svg",
     "freeBox",
     "fragmentInput",
     "button"
@@ -421,12 +439,20 @@ const PlasmicDescendants = {
     "section",
     "h1",
     "fragmentApiRequest",
+    "svg",
     "freeBox",
     "fragmentInput",
     "button"
   ],
   h1: ["h1"],
-  fragmentApiRequest: ["fragmentApiRequest"],
+  fragmentApiRequest: [
+    "fragmentApiRequest",
+    "svg",
+    "freeBox",
+    "fragmentInput",
+    "button"
+  ],
+  svg: ["svg"],
   freeBox: ["freeBox", "fragmentInput", "button"],
   fragmentInput: ["fragmentInput"],
   button: ["button"]
@@ -439,6 +465,7 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   fragmentApiRequest: typeof ApiRequest;
+  svg: "svg";
   freeBox: "div";
   fragmentInput: typeof Input;
   button: typeof Button;
@@ -507,6 +534,7 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    svg: makeNodeComponent("svg"),
     freeBox: makeNodeComponent("freeBox"),
     fragmentInput: makeNodeComponent("fragmentInput"),
     button: makeNodeComponent("button"),

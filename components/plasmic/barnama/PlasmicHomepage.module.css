@@ -62,11 +62,18 @@
   max-width: 100%;
   object-fit: cover;
 }
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 60px;
+  height: 60px;
+}
 .text__qLXa {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  text-align: center;
   min-width: 0;
 }
 .text__bGukl {
@@ -74,12 +81,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  min-width: 0;
-}
-.text__r3Gl {
-  position: relative;
-  width: 100%;
-  height: auto;
   min-width: 0;
 }
 .freeBox {

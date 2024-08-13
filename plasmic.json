@@ -67,6 +67,16 @@
           "id": "3EgpshlPs7dM",
           "name": "IconIcon",
           "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon.tsx"
+        },
+        {
+          "id": "T0cp7KYPODD4",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "srpZpCYAa_Ql",
+          "name": "Icon3Icon",
+          "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon3.tsx"
         }
       ],
       "images": [],
@@ -180,7 +190,8 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

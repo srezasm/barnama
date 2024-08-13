@@ -60,8 +60,8 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: b2vEI7YNG0dM/codeComponent
-import { Input } from "@/fragment/components/input"; // plasmic-import: RUNfWewnW4PM/codeComponent
 import Button from "../../Button"; // plasmic-import: fg07TcMEp1vM/component
+import { Input } from "@/fragment/components/input"; // plasmic-import: RUNfWewnW4PM/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -88,12 +88,12 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
-  h1?: Flex__<"h1">;
+  h2?: Flex__<"h2">;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
   svg?: Flex__<"svg">;
   freeBox?: Flex__<"div">;
-  fragmentInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
+  fragmentInput?: Flex__<typeof Input>;
 };
 
 export interface DefaultHomepageProps {}
@@ -236,20 +236,31 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
+            <h2
+              data-plasmic-name={"h2"}
+              data-plasmic-override={overrides.h2}
               className={classNames(
                 projectcss.all,
-                projectcss.h1,
+                projectcss.h2,
                 projectcss.__wab_text,
-                sty.h1
+                sty.h2
               )}
             >
               {
-                "\u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc\u200c\u0647\u0627"
+                "\u0628\u0647\u062a\u0631 \u062f\u06cc\u062f\u0647 \u0634\u0648\u06cc\u062f"
               }
-            </h1>
+            </h2>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__k6Sq
+              )}
+            >
+              {
+                "\u0628\u0627 \u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u0632\u06cc\u0631 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0635\u0641\u062d\u0647 \u0634\u062e\u0635\u06cc \u062e\u0648\u062f \u0631\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f."
+              }
+            </div>
             <ApiRequest
               data-plasmic-name={"fragmentApiRequest"}
               data-plasmic-override={overrides.fragmentApiRequest}
@@ -338,24 +349,6 @@ function PlasmicHomepage__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox)}
               >
-                <Input
-                  data-plasmic-name={"fragmentInput"}
-                  data-plasmic-override={overrides.fragmentInput}
-                  attributes={{ dir: "ltr" }}
-                  className={classNames("__wab_instance", sty.fragmentInput)}
-                  disabled={true}
-                  onChange={generateStateOnChangeProp($state, [
-                    "fragmentInput",
-                    "value"
-                  ])}
-                  placeholder={``}
-                  type={"text"}
-                  value={generateStateValueProp($state, [
-                    "fragmentInput",
-                    "value"
-                  ])}
-                />
-
                 <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
@@ -391,7 +384,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           const actionArgs = {
                             args: [
                               undefined,
-                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f.",
+                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
                               "top-center"
                             ]
                           };
@@ -415,6 +408,23 @@ function PlasmicHomepage__RenderFunc(props: {
                 >
                   {"\u06a9\u067e\u06cc"}
                 </Button>
+                <Input
+                  data-plasmic-name={"fragmentInput"}
+                  data-plasmic-override={overrides.fragmentInput}
+                  attributes={{ dir: "ltr" }}
+                  className={classNames("__wab_instance", sty.fragmentInput)}
+                  disabled={true}
+                  onChange={generateStateOnChangeProp($state, [
+                    "fragmentInput",
+                    "value"
+                  ])}
+                  placeholder={``}
+                  type={"text"}
+                  value={generateStateValueProp($state, [
+                    "fragmentInput",
+                    "value"
+                  ])}
+                />
               </Stack__>
             </ApiRequest>
           </section>
@@ -428,34 +438,34 @@ const PlasmicDescendants = {
   root: [
     "root",
     "section",
-    "h1",
+    "h2",
     "fragmentApiRequest",
     "svg",
     "freeBox",
-    "fragmentInput",
-    "button"
+    "button",
+    "fragmentInput"
   ],
   section: [
     "section",
-    "h1",
+    "h2",
     "fragmentApiRequest",
     "svg",
     "freeBox",
-    "fragmentInput",
-    "button"
+    "button",
+    "fragmentInput"
   ],
-  h1: ["h1"],
+  h2: ["h2"],
   fragmentApiRequest: [
     "fragmentApiRequest",
     "svg",
     "freeBox",
-    "fragmentInput",
-    "button"
+    "button",
+    "fragmentInput"
   ],
   svg: ["svg"],
-  freeBox: ["freeBox", "fragmentInput", "button"],
-  fragmentInput: ["fragmentInput"],
-  button: ["button"]
+  freeBox: ["freeBox", "button", "fragmentInput"],
+  button: ["button"],
+  fragmentInput: ["fragmentInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -463,12 +473,12 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   section: "section";
-  h1: "h1";
+  h2: "h2";
   fragmentApiRequest: typeof ApiRequest;
   svg: "svg";
   freeBox: "div";
-  fragmentInput: typeof Input;
   button: typeof Button;
+  fragmentInput: typeof Input;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -532,12 +542,12 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
+    h2: makeNodeComponent("h2"),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
     svg: makeNodeComponent("svg"),
     freeBox: makeNodeComponent("freeBox"),
-    fragmentInput: makeNodeComponent("fragmentInput"),
     button: makeNodeComponent("button"),
+    fragmentInput: makeNodeComponent("fragmentInput"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

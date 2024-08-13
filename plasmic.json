@@ -5,6 +5,10 @@
     "scheme": "blackbox",
     "reactRuntime": "classic"
   },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+  },
   "images": {
     "scheme": "public-files",
     "publicDir": "../public",
@@ -16,12 +20,143 @@
   },
   "srcDir": "components",
   "defaultPlasmicDir": "./plasmic",
-  "projects": [],
-  "globalVariants": {},
+  "projects": [
+    {
+      "projectId": "v57deDbCRSiUfTDw1tW741",
+      "projectApiToken": "wsBAWjnnlLGm5l1s5xUJi0z0hAtZLOBET8i5lbSFkA44phIJlRxlkW03fd9bG3OhwEKylROKxAEj9vmk7aQ",
+      "projectName": "Barnama",
+      "version": "latest",
+      "cssFilePath": "plasmic/barnama/plasmic.module.css",
+      "components": [
+        {
+          "id": "Vr6w4OQ1QIr8",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "v57deDbCRSiUfTDw1tW741",
+          "renderModuleFilePath": "plasmic/barnama/PlasmicHomepage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/barnama/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/"
+        }
+      ],
+      "icons": [],
+      "images": [],
+      "indirect": false,
+      "globalContextsFilePath": "plasmic/barnama/PlasmicGlobalContextsProvider.tsx",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "EG2IaaVuKnA7",
+          "name": "PlasmicHead",
+          "displayName": "hostless-plasmic-head",
+          "componentImportPath": "@plasmicapp/react-web"
+        },
+        {
+          "id": "_z81YiFdjw2A",
+          "name": "Fetcher",
+          "displayName": "plasmic-data-source-fetcher",
+          "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "DSar3WkScNbE",
+          "name": "DatePicker",
+          "displayName": "DatePicker",
+          "componentImportPath": "@/fragment/components/date-picker"
+        },
+        {
+          "id": "_FqeLWxYUWM5",
+          "name": "TimePicker",
+          "displayName": "TimePicker",
+          "componentImportPath": "@/fragment/components/time-picker"
+        },
+        {
+          "id": "_2WyqS1E8VGC",
+          "name": "Popover",
+          "displayName": "Popover",
+          "componentImportPath": "@/fragment/components/popover"
+        },
+        {
+          "id": "Twe1cSKFBOLG",
+          "name": "Select",
+          "displayName": "Select",
+          "componentImportPath": "@/fragment/components/select"
+        },
+        {
+          "id": "RUNfWewnW4PM",
+          "name": "Input",
+          "displayName": "Input",
+          "componentImportPath": "@/fragment/components/input"
+        },
+        {
+          "id": "op5JVRalwyGJ",
+          "name": "Switch",
+          "displayName": "Switch",
+          "componentImportPath": "@/fragment/components/switch"
+        },
+        {
+          "id": "O2GocB0P-2my",
+          "name": "Slider",
+          "displayName": "Slider",
+          "componentImportPath": "@/fragment/components/slider"
+        },
+        {
+          "id": "b2vEI7YNG0dM",
+          "name": "ApiRequest",
+          "displayName": "ApiRequest",
+          "componentImportPath": "@/fragment/components/api-request"
+        },
+        {
+          "id": "ZVw_z4r-2fMs",
+          "name": "Chart",
+          "displayName": "Chart",
+          "componentImportPath": "@/fragment/components/chart"
+        },
+        {
+          "id": "YidKWfoFAPSE",
+          "name": "Textarea",
+          "displayName": "Textarea",
+          "componentImportPath": "@/fragment/components/textarea"
+        },
+        {
+          "id": "W3DVi9BaEL-W",
+          "name": "Fragment",
+          "displayName": "Fragment",
+          "componentImportPath": "@/fragment/fragment"
+        },
+        {
+          "id": "j5tMSe8t0gTe",
+          "name": "GrowthBook",
+          "displayName": "GrowthBook",
+          "componentImportPath": "@/fragment/growthbook"
+        },
+        {
+          "id": "UuX6mThhsJzx",
+          "name": "Splunk",
+          "displayName": "Splunk",
+          "componentImportPath": "@/fragment/splunk"
+        }
+      ],
+      "customFunctions": []
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "6ZX-_2C3kdhG",
+        "name": "Screen",
+        "projectId": "v57deDbCRSiUfTDw1tW741",
+        "contextFilePath": "plasmic/barnama/PlasmicGlobalVariant__Screen.tsx"
+      }
+    ]
+  },
   "wrapPagesWithGlobalContexts": true,
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.330",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.330/dist/plasmic.schema.json"
+  "cliVersion": "0.1.331",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.331/dist/plasmic.schema.json"
 }

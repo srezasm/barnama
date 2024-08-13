@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: b2vEI7YNG0dM/codeComponent
+import { Input } from "@/fragment/components/input"; // plasmic-import: RUNfWewnW4PM/codeComponent
 import Button from "../../Button"; // plasmic-import: fg07TcMEp1vM/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -69,6 +70,8 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: Vr6w4OQ1QIr8/
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: Hw4uH64OkDA1/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3EgpshlPs7dM/icon
+
+import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
 
@@ -86,12 +89,16 @@ export type PlasmicHomepage__OverridesType = {
   section?: Flex__<"section">;
   h1?: Flex__<"h1">;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  freeBox?: Flex__<"div">;
+  fragmentInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
 };
 
 export interface DefaultHomepageProps {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -120,6 +127,8 @@ function PlasmicHomepage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -139,6 +148,13 @@ function PlasmicHomepage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "https://www.paziresh24.com/dashboard/apps/barnama/share/"
       }
     ],
     [$props, $ctx, $refs]
@@ -299,12 +315,91 @@ function PlasmicHomepage__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </ApiRequest>
-            <Button
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
-              className={classNames("__wab_instance", sty.button)}
-              color={"softYellow"}
-            />
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox)}
+            >
+              <Input
+                data-plasmic-name={"fragmentInput"}
+                data-plasmic-override={overrides.fragmentInput}
+                attributes={{ dir: "ltr" }}
+                className={classNames("__wab_instance", sty.fragmentInput)}
+                disabled={true}
+                onChange={generateStateOnChangeProp($state, [
+                  "fragmentInput",
+                  "value"
+                ])}
+                placeholder={``}
+                type={"text"}
+                value={generateStateValueProp($state, [
+                  "fragmentInput",
+                  "value"
+                ])}
+              />
+
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={"softBlue"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return $$.copyToClipboard(
+                              $state.fragmentInput.value
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f.",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+                }}
+                size={"compact"}
+              >
+                {"\u06a9\u067e\u06cc"}
+              </Button>
+            </Stack__>
           </section>
         </div>
       </div>
@@ -313,10 +408,27 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "fragmentApiRequest", "button"],
-  section: ["section", "h1", "fragmentApiRequest", "button"],
+  root: [
+    "root",
+    "section",
+    "h1",
+    "fragmentApiRequest",
+    "freeBox",
+    "fragmentInput",
+    "button"
+  ],
+  section: [
+    "section",
+    "h1",
+    "fragmentApiRequest",
+    "freeBox",
+    "fragmentInput",
+    "button"
+  ],
   h1: ["h1"],
   fragmentApiRequest: ["fragmentApiRequest"],
+  freeBox: ["freeBox", "fragmentInput", "button"],
+  fragmentInput: ["fragmentInput"],
   button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -327,6 +439,8 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   fragmentApiRequest: typeof ApiRequest;
+  freeBox: "div";
+  fragmentInput: typeof Input;
   button: typeof Button;
 };
 
@@ -393,6 +507,8 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    freeBox: makeNodeComponent("freeBox"),
+    fragmentInput: makeNodeComponent("fragmentInput"),
     button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicHomepage

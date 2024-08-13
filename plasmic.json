@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -41,9 +41,34 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/"
+        },
+        {
+          "id": "fg07TcMEp1vM",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "v57deDbCRSiUfTDw1tW741",
+          "renderModuleFilePath": "plasmic/barnama/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/barnama/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
         }
       ],
-      "icons": [],
+      "icons": [
+        {
+          "id": "Hw4uH64OkDA1",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "3EgpshlPs7dM",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon.tsx"
+        }
+      ],
       "images": [],
       "indirect": false,
       "globalContextsFilePath": "plasmic/barnama/PlasmicGlobalContextsProvider.tsx",

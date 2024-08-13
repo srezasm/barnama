@@ -60,11 +60,15 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: b2vEI7YNG0dM/codeComponent
+import Button from "../../Button"; // plasmic-import: fg07TcMEp1vM/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: v57deDbCRSiUfTDw1tW741/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: Vr6w4OQ1QIr8/css
+
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: Hw4uH64OkDA1/icon
+import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3EgpshlPs7dM/icon
 
 createPlasmicElementProxy;
 
@@ -82,6 +86,7 @@ export type PlasmicHomepage__OverridesType = {
   section?: Flex__<"section">;
   h1?: Flex__<"h1">;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultHomepageProps {}
@@ -255,7 +260,9 @@ function PlasmicHomepage__RenderFunc(props: {
               ])}
               params={(() => {
                 try {
-                  return $ctx.params.user_id;
+                  return {
+                    user_id: $ctx.query.user_id
+                  };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -276,25 +283,28 @@ function PlasmicHomepage__RenderFunc(props: {
                 )}
               >
                 <React.Fragment>
-                  <React.Fragment>
-                    {
-                      "If you haven't already done so, go back and learn the basics by going through the Plasmic Levels tutorial.\n\nIt's always easier to start from examples! Add a new page using a template\u2014do this from the list of pages in the top toolbar.\n\nOr press the big blue + button to start inserting items into this page.\n\nIntegrate this project into your codebase\u2014press the "
+                  {(() => {
+                    try {
+                      return $state.fragmentApiRequest.data.id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
                     }
-                  </React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ fontWeight: 700 }}
-                  >
-                    {"Code"}
-                  </span>
-                  <React.Fragment>
-                    {
-                      " button in the top right and follow the quickstart instructions.\n\nJoin our Slack community (icon in bottom left) for help any time."
-                    }
-                  </React.Fragment>
+                  })()}
                 </React.Fragment>
               </div>
             </ApiRequest>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={"softYellow"}
+            />
           </section>
         </div>
       </div>
@@ -303,10 +313,11 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "fragmentApiRequest"],
-  section: ["section", "h1", "fragmentApiRequest"],
+  root: ["root", "section", "h1", "fragmentApiRequest", "button"],
+  section: ["section", "h1", "fragmentApiRequest", "button"],
   h1: ["h1"],
-  fragmentApiRequest: ["fragmentApiRequest"]
+  fragmentApiRequest: ["fragmentApiRequest"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -316,6 +327,7 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   fragmentApiRequest: typeof ApiRequest;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -381,6 +393,7 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

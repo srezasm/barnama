@@ -93,8 +93,19 @@
 .rootcolor_link {
   background: #ffffff00;
 }
-.rootcolor_pink {
-  background: #e0138f;
+.rootcolor_telegram {
+  background: #24a1de;
+  transform: none;
+  filter: none;
+}
+.rootcolor_whatsapp {
+  background: #25d366;
+}
+.rootcolor_twitter {
+  background: #000000;
+}
+.rootcolor_eitaa {
+  background: #f08414;
 }
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
@@ -147,14 +158,17 @@
 .rootcolor_link:hover {
   background: #ffffff00;
 }
-.rootcolor_pink:hover {
-  background: #b71a68;
+.rootcolor_telegram:hover {
+  background: #1d8abf;
+}
+.rootcolor_whatsapp:hover {
+  background: #075e54;
+}
+.rootcolor_eitaa:hover {
+  background: #c56d12;
 }
 .root:focus-within {
   box-shadow: 0px 0px 0px 3px #96c7f2;
-  outline: none;
-}
-.rootcolor_pink:focus-within {
   outline: none;
 }
 .root___focusVisibleWithin {
@@ -203,8 +217,17 @@
 .rootcolor_link:active {
   background: #ffffff00;
 }
-.rootcolor_pink:active {
-  background: #800d4a;
+.rootcolor_telegram:active {
+  background: #24c3de;
+}
+.rootcolor_whatsapp:active {
+  background: #d0d0d0;
+}
+.rootcolor_twitter:active {
+  background: #595954;
+}
+.rootcolor_eitaa:active {
+  background: #f2a04a;
 }
 .startIconContainer {
   display: flex;
@@ -215,6 +238,9 @@
 }
 .startIconContainershowStartIcon {
   display: flex;
+}
+.startIconContainercolor_telegram {
+  display: none;
 }
 .slotTargetStartIcon {
   color: #ededec;
@@ -437,13 +463,22 @@
   color: #006adc;
 }
 .endIconContainer {
-  display: flex;
   position: relative;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
+  display: none;
 }
 .endIconContainershowEndIcon {
+  display: flex;
+}
+.endIconContainercolor_telegram {
+  display: flex;
+}
+.endIconContainercolor_whatsapp {
+  display: flex;
+}
+.endIconContainercolor_twitter {
   display: flex;
 }
 .slotTargetEndIcon {
@@ -487,4 +522,38 @@
   object-fit: cover;
   width: auto;
   height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg__zev5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg__qSydm {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg__dQz3L {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg__cEzv1 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
 }

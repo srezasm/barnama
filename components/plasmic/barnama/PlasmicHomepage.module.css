@@ -40,7 +40,7 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  padding: 96px 0px;
+  padding: 60px 0px 96px;
 }
 .section > * {
   grid-column: 4;
@@ -58,19 +58,11 @@
   text-align: center;
   min-width: 0;
 }
-.text__k6Sq {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  min-width: 0;
-}
 .fragmentApiRequest:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.svg {
+.svg__vgJww {
   object-fit: cover;
   max-width: 100%;
   width: 60px;
@@ -91,10 +83,12 @@
   max-width: 100%;
   min-width: 0;
 }
-.freeBox {
+.freeBox___0MuZ {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -102,7 +96,39 @@
   min-width: 0;
   padding: 8px;
 }
-.freeBox > :global(.__wab_flex-container) {
+.freeBox__qpHpZ {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__vkpfc {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  padding-right: 40px;
+  min-width: 0;
+}
+.freeBox__h9ISt {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__h9ISt > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -110,10 +136,10 @@
   margin-left: calc(0px - 10px);
   width: calc(100% + 10px);
 }
-.freeBox > :global(.__wab_flex-container) > *,
-.freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox > :global(.__wab_flex-container) > picture > img,
-.freeBox
+.freeBox__h9ISt > :global(.__wab_flex-container) > *,
+.freeBox__h9ISt > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__h9ISt > :global(.__wab_flex-container) > picture > img,
+.freeBox__h9ISt
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
@@ -123,17 +149,51 @@
 .button:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__k6Mft {
+.svg___5Qyfw {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
+  display: none;
 }
-.svg__f4Wys {
+.link2 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
+  color: #006adc;
+}
+.x {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.whatsapp {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.telegram {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.eitaa {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
 }
 .fragmentInput:global(.__wab_instance) {
   width: auto;
@@ -143,6 +203,218 @@
   cursor: text;
   font-family: "Inter", sans-serif;
   color: #006adc;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+.freeBox__yqnZa {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  min-width: 0;
+  padding: 8px;
+}
+.text__zegre {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  margin-top: 0px;
+  padding-right: 40px;
+  min-width: 0;
+}
+.shareButtons {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.shareButtons > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-left: calc(0px - 10px);
+  width: calc(100% + 10px);
+}
+.shareButtons > :global(.__wab_flex-container) > *,
+.shareButtons > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.shareButtons > :global(.__wab_flex-container) > picture > img,
+.shareButtons
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 10px;
+}
+.eitaaButton:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__qDNwq {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.x5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.whatsapp5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.telegram5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.eitaa5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+}
+.whatsappButton:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__mbTw7 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.x2 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.whatsapp2 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+}
+.telegram2 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.eitaa2 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.telegramButton:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__fEnIf {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.x3 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.whatsapp3 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.telegram3 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+}
+.eitaa3 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.twitterButton:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__sipMp {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.x4 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+}
+.whatsapp4 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.telegram4 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.eitaa4 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
 }

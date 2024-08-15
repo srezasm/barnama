@@ -463,6 +463,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       }}
                       showStartIcon={true}
+                      size={"compact"}
                       startIcon={
                         <React.Fragment>
                           <ChecksvgIcon
@@ -482,7 +483,15 @@ function PlasmicHomepage__RenderFunc(props: {
                         </React.Fragment>
                       }
                     >
-                      {"\u06a9\u067e\u06cc"}
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__llzZ
+                        )}
+                      >
+                        {"\u06a9\u067e\u06cc"}
+                      </div>
                     </Button>
                     <Input
                       data-plasmic-name={"fragmentInput"}
@@ -583,6 +592,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       })()}
                       showEndIcon={true}
+                      target={true}
                     >
                       {"\u0627\u06cc\u062a\u0627"}
                     </Button>
@@ -647,6 +657,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       })()}
                       showEndIcon={true}
+                      target={true}
                     >
                       {"\u0648\u0627\u062a\u0633\u0627\u067e"}
                     </Button>
@@ -715,6 +726,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       })()}
                       showEndIcon={true}
+                      target={true}
                     >
                       {"\u062a\u0644\u06af\u0631\u0627\u0645"}
                     </Button>
@@ -782,6 +794,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           throw e;
                         }
                       })()}
+                      target={true}
                     >
                       {"\u0627\u06cc\u06a9\u0633"}
                     </Button>

@@ -127,6 +127,11 @@
           "id": "8DKb3GABQJwG",
           "name": "Icon13Icon",
           "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon13.tsx"
+        },
+        {
+          "id": "evTl-3AIin7I",
+          "name": "Icon14Icon",
+          "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon14.tsx"
         }
       ],
       "images": [],

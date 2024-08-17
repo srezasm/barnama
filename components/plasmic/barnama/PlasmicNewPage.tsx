@@ -146,195 +146,212 @@ function PlasmicNewPage__RenderFunc(props: {
       `}</style>
 
       <div className={projectcss.plasmic_page_wrapper}>
-        <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
-          data-plasmic-root={true}
-          data-plasmic-for-node={forNode}
-          className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            sty.root
-          )}
-          onLoad={async event => {
-            const $steps = {};
-
-            $steps["updateStateVariable"] = true
-              ? (() => {
-                  const actionArgs = {};
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-                    undefined;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
+        {(() => {
+          try {
+            return !!$ctx.query.doctor_name;
+          } catch (e) {
             if (
-              $steps["updateStateVariable"] != null &&
-              typeof $steps["updateStateVariable"] === "object" &&
-              typeof $steps["updateStateVariable"].then === "function"
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
             ) {
-              $steps["updateStateVariable"] = await $steps[
-                "updateStateVariable"
-              ];
+              return false;
             }
-          }}
-        >
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"p24Header"}
-            data-plasmic-override={overrides.p24Header}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.p24Header)}
+            throw e;
+          }
+        })() ? (
+          <div
+            data-plasmic-name={"root"}
+            data-plasmic-override={overrides.root}
+            data-plasmic-root={true}
+            data-plasmic-for-node={forNode}
+            className={classNames(
+              projectcss.all,
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              sty.root
+            )}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__k4U7E
-              )}
-            >
-              {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
-            </div>
-            <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
-              alt={""}
-              className={classNames(sty.img)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"100px"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/barnama/images/image.svg",
-                fullWidth: 102.473,
-                fullHeight: 108.85,
-                aspectRatio: 0.941415
-              }}
-            />
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___41Z5M)}
-            dir={"rtl"}
-          >
-            <PlasmicImg__
-              data-plasmic-name={"drImage"}
-              data-plasmic-override={overrides.drImage}
-              alt={""}
-              className={classNames(sty.drImage)}
-              displayHeight={"100%"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              height={"200px"}
-              loading={"lazy"}
-              src={(() => {
-                try {
-                  return $ctx.query.profile_pic;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return {
-                      src: "/plasmic/barnama/images/image4.png",
-                      fullWidth: 200,
-                      fullHeight: 200,
-                      aspectRatio: undefined
-                    };
-                  }
-                  throw e;
-                }
-              })()}
-              width={"200px"}
-            />
-
-            <div
-              data-plasmic-name={"drInfo"}
-              data-plasmic-override={overrides.drInfo}
-              className={classNames(projectcss.all, sty.drInfo)}
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"p24Header"}
+              data-plasmic-override={overrides.p24Header}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.p24Header)}
             >
               <div
-                data-plasmic-name={"drName"}
-                data-plasmic-override={overrides.drName}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.drName
+                  sty.text__k4U7E
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $ctx.query.doctor_name;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u062f\u06a9\u062a\u0631 \u0641\u0631\u062d \u0646\u0627\u0632 \u0631\u0634\u06cc\u062f\u06cc";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                {"\u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"}
               </div>
-              <div
-                data-plasmic-name={"experienceContainer"}
-                data-plasmic-override={overrides.experienceContainer}
-                className={classNames(projectcss.all, sty.experienceContainer)}
-              >
-                <PlasmicImg__
-                  data-plasmic-name={"experienceIcon"}
-                  data-plasmic-override={overrides.experienceIcon}
-                  alt={""}
-                  className={classNames(sty.experienceIcon)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"40px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/barnama/images/image3.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
-                />
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"100px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/barnama/images/image.svg",
+                  fullWidth: 102.473,
+                  fullHeight: 108.85,
+                  aspectRatio: 0.941415
+                }}
+              />
+            </Stack__>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___41Z5M)}
+              dir={"rtl"}
+            >
+              <PlasmicImg__
+                data-plasmic-name={"drImage"}
+                data-plasmic-override={overrides.drImage}
+                alt={""}
+                className={classNames(sty.drImage)}
+                displayHeight={"100%"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                height={"200px"}
+                loading={"lazy"}
+                src={(() => {
+                  try {
+                    return $ctx.query.profile_pic;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return {
+                        src: "/plasmic/barnama/images/image4.png",
+                        fullWidth: 200,
+                        fullHeight: 200,
+                        aspectRatio: undefined
+                      };
+                    }
+                    throw e;
+                  }
+                })()}
+                width={"200px"}
+              />
 
+              <div
+                data-plasmic-name={"drInfo"}
+                data-plasmic-override={overrides.drInfo}
+                className={classNames(projectcss.all, sty.drInfo)}
+              >
                 <div
-                  data-plasmic-name={"experience"}
-                  data-plasmic-override={overrides.experience}
+                  data-plasmic-name={"drName"}
+                  data-plasmic-override={overrides.drName}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.experience
+                    sty.drName
                   )}
                 >
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $ctx.query.experience;
+                        return $ctx.query.doctor_name;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return " \u0628\u06cc\u0634\u200c\u0627\u0632 23 \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647";
+                          return "\u062f\u06a9\u062a\u0631 \u0641\u0631\u062d \u0646\u0627\u0632 \u0631\u0634\u06cc\u062f\u06cc";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                <div
+                  data-plasmic-name={"experienceContainer"}
+                  data-plasmic-override={overrides.experienceContainer}
+                  className={classNames(
+                    projectcss.all,
+                    sty.experienceContainer
+                  )}
+                >
+                  <PlasmicImg__
+                    data-plasmic-name={"experienceIcon"}
+                    data-plasmic-override={overrides.experienceIcon}
+                    alt={""}
+                    className={classNames(sty.experienceIcon)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"40px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/barnama/images/image3.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    data-plasmic-name={"experience"}
+                    data-plasmic-override={overrides.experience}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.experience
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.query.experience;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return " \u0628\u06cc\u0634\u200c\u0627\u0632 23 \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
+                <div
+                  data-plasmic-name={"doctoralId"}
+                  data-plasmic-override={overrides.doctoralId}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.doctoralId
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return "شماره نظام پزشکی: " + $ctx.query.doctoral_id;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0634\u0645\u0627\u0631\u0647 \u0646\u0638\u0627\u0645 \u067e\u0632\u0634\u06a9\u06cc: \u0645-37139";
                         }
                         throw e;
                       }
@@ -342,186 +359,161 @@ function PlasmicNewPage__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               </div>
-              <div
-                data-plasmic-name={"doctoralId"}
-                data-plasmic-override={overrides.doctoralId}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.doctoralId
-                )}
+            </Stack__>
+            <div
+              data-plasmic-name={"qrcodes"}
+              data-plasmic-override={overrides.qrcodes}
+              className={classNames(projectcss.all, sty.qrcodes)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__yDxeN)}
               >
-                <React.Fragment>
-                  {(() => {
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cvToV
+                  )}
+                >
+                  {
+                    "\u0635\u0641\u062d\u0647 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u067e\u0632\u0634\u06a9"
+                  }
+                </div>
+                <PlasmicImg__
+                  data-plasmic-name={"bookingQrcode"}
+                  data-plasmic-override={overrides.bookingQrcode}
+                  alt={""}
+                  className={classNames(sty.bookingQrcode)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={(() => {
                     try {
-                      return "شماره نظام پزشکی: " + $ctx.query.doctoral_id;
+                      return (() => {
+                        return (
+                          "https://api.qrserver.com/v1/create-qr-code/?data=" +
+                          $ctx.query.booking_url +
+                          "&format=svg"
+                        );
+                      })();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
                         e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return "\u0634\u0645\u0627\u0631\u0647 \u0646\u0638\u0627\u0645 \u067e\u0632\u0634\u06a9\u06cc: \u0645-37139";
+                        return undefined;
                       }
                       throw e;
                     }
                   })()}
-                </React.Fragment>
-              </div>
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bloVt
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $ctx.query.booking_url;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__jc4G)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rfQjn
+                  )}
+                >
+                  {
+                    "\u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u067e\u0632\u0634\u06a9 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"
+                  }
+                </div>
+                <PlasmicImg__
+                  data-plasmic-name={"profileQrcode"}
+                  data-plasmic-override={overrides.profileQrcode}
+                  alt={""}
+                  className={classNames(sty.profileQrcode)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={(() => {
+                    try {
+                      return (() => {
+                        return (
+                          "https://api.qrserver.com/v1/create-qr-code/?data=" +
+                          $ctx.query.profile_url +
+                          "&format=svg"
+                        );
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__d238L
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $ctx.query.profile_url;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
             </div>
-          </Stack__>
-          <div
-            data-plasmic-name={"qrcodes"}
-            data-plasmic-override={overrides.qrcodes}
-            className={classNames(projectcss.all, sty.qrcodes)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__yDxeN)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cvToV
-                )}
-              >
-                {
-                  "\u0635\u0641\u062d\u0647 \u0646\u0648\u0628\u062a\u200c\u062f\u0647\u06cc \u067e\u0632\u0634\u06a9"
-                }
-              </div>
-              <PlasmicImg__
-                data-plasmic-name={"bookingQrcode"}
-                data-plasmic-override={overrides.bookingQrcode}
-                alt={""}
-                className={classNames(sty.bookingQrcode)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={(() => {
-                  try {
-                    return (() => {
-                      return (
-                        "https://api.qrserver.com/v1/create-qr-code/?data=" +
-                        $ctx.query.booking_url +
-                        "&format=svg"
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bloVt
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $ctx.query.booking_url;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__jc4G)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rfQjn
-                )}
-              >
-                {
-                  "\u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u067e\u0632\u0634\u06a9 \u062f\u0631 \u067e\u0630\u06cc\u0631\u0634\u06f2\u06f4"
-                }
-              </div>
-              <PlasmicImg__
-                data-plasmic-name={"profileQrcode"}
-                data-plasmic-override={overrides.profileQrcode}
-                alt={""}
-                className={classNames(sty.profileQrcode)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={(() => {
-                  try {
-                    return (() => {
-                      return (
-                        "https://api.qrserver.com/v1/create-qr-code/?data=" +
-                        $ctx.query.profile_url +
-                        "&format=svg"
-                      );
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__d238L
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $ctx.query.profile_url;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
-            </Stack__>
           </div>
-        </div>
+        ) : null}
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;

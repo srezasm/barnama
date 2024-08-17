@@ -159,6 +159,31 @@ function PlasmicNewPage__RenderFunc(props: {
             projectcss.plasmic_tokens,
             sty.root
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["updateStateVariable"] = true
+              ? (() => {
+                  const actionArgs = {};
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+                    undefined;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateStateVariable"] != null &&
+              typeof $steps["updateStateVariable"] === "object" &&
+              typeof $steps["updateStateVariable"].then === "function"
+            ) {
+              $steps["updateStateVariable"] = await $steps[
+                "updateStateVariable"
+              ];
+            }
+          }}
         >
           <Stack__
             as={"div"}
@@ -213,13 +238,27 @@ function PlasmicNewPage__RenderFunc(props: {
               displayMinHeight={"0"}
               displayMinWidth={"0"}
               displayWidth={"auto"}
+              height={"200px"}
               loading={"lazy"}
-              src={{
-                src: "/plasmic/barnama/images/image2.png",
-                fullWidth: 150,
-                fullHeight: 150,
-                aspectRatio: undefined
-              }}
+              src={(() => {
+                try {
+                  return $ctx.query.profile_pic;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return {
+                      src: "/plasmic/barnama/images/image4.png",
+                      fullWidth: 200,
+                      fullHeight: 200,
+                      aspectRatio: undefined
+                    };
+                  }
+                  throw e;
+                }
+              })()}
+              width={"200px"}
             />
 
             <div

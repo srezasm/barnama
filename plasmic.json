@@ -163,6 +163,11 @@
           "id": "ZIGOGhGK7Mlv",
           "name": "image 3",
           "filePath": "../public/plasmic/barnama/images/image3.svg"
+        },
+        {
+          "id": "Kc7CO7fRZ-HC",
+          "name": "image 4",
+          "filePath": "../public/plasmic/barnama/images/image4.png"
         }
       ],
       "indirect": false,

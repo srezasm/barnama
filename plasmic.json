@@ -55,6 +55,20 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
+        },
+        {
+          "id": "rHSCFPT8-FdV",
+          "name": "NewPage",
+          "type": "managed",
+          "projectId": "v57deDbCRSiUfTDw1tW741",
+          "renderModuleFilePath": "plasmic/barnama/PlasmicNewPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/wallpaper.tsx"
+          },
+          "cssFilePath": "plasmic/barnama/PlasmicNewPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/wallpaper"
         }
       ],
       "icons": [
@@ -134,7 +148,23 @@
           "moduleFilePath": "plasmic/barnama/icons/PlasmicIcon__Icon14.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "iNf_azrbJksN",
+          "name": "image",
+          "filePath": "../public/plasmic/barnama/images/image.svg"
+        },
+        {
+          "id": "HkH8kOUVzvu0",
+          "name": "image 2",
+          "filePath": "../public/plasmic/barnama/images/image2.png"
+        },
+        {
+          "id": "ZIGOGhGK7Mlv",
+          "name": "image 3",
+          "filePath": "../public/plasmic/barnama/images/image3.svg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/barnama/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",

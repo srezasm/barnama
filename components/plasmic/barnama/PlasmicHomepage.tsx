@@ -98,6 +98,7 @@ export type PlasmicHomepage__OverridesType = {
   section?: Flex__<"section">;
   h2?: Flex__<"h2">;
   fragmentprofile?: Flex__<typeof ApiRequest>;
+  loadingSvg?: Flex__<"svg">;
   fragmentInput?: Flex__<typeof Input>;
   shareButtons?: Flex__<"div">;
   link4?: Flex__<"svg">;
@@ -382,7 +383,9 @@ function PlasmicHomepage__RenderFunc(props: {
               loadingDisplay={
                 <React.Fragment>
                   <Icon3Icon
-                    className={classNames(projectcss.all, sty.svg__vgJww)}
+                    data-plasmic-name={"loadingSvg"}
+                    data-plasmic-override={overrides.loadingSvg}
+                    className={classNames(projectcss.all, sty.loadingSvg)}
                     role={"img"}
                   />
 
@@ -1299,6 +1302,7 @@ const PlasmicDescendants = {
     "section",
     "h2",
     "fragmentprofile",
+    "loadingSvg",
     "fragmentInput",
     "shareButtons",
     "link4",
@@ -1359,6 +1363,7 @@ const PlasmicDescendants = {
     "section",
     "h2",
     "fragmentprofile",
+    "loadingSvg",
     "fragmentInput",
     "shareButtons",
     "link4",
@@ -1418,6 +1423,7 @@ const PlasmicDescendants = {
   h2: ["h2"],
   fragmentprofile: [
     "fragmentprofile",
+    "loadingSvg",
     "fragmentInput",
     "shareButtons",
     "link4",
@@ -1446,6 +1452,7 @@ const PlasmicDescendants = {
     "telegram4",
     "eitaa4"
   ],
+  loadingSvg: ["loadingSvg"],
   fragmentInput: ["fragmentInput"],
   shareButtons: [
     "shareButtons",
@@ -1611,6 +1618,7 @@ type NodeDefaultElementType = {
   section: "section";
   h2: "h2";
   fragmentprofile: typeof ApiRequest;
+  loadingSvg: "svg";
   fragmentInput: typeof Input;
   shareButtons: "div";
   link4: "svg";
@@ -1731,6 +1739,7 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h2: makeNodeComponent("h2"),
     fragmentprofile: makeNodeComponent("fragmentprofile"),
+    loadingSvg: makeNodeComponent("loadingSvg"),
     fragmentInput: makeNodeComponent("fragmentInput"),
     shareButtons: makeNodeComponent("shareButtons"),
     link4: makeNodeComponent("link4"),

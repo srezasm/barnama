@@ -60,7 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: b2vEI7YNG0dM/codeComponent
-import { Input } from "@/fragment/components/input"; // plasmic-import: RUNfWewnW4PM/codeComponent
 import Button from "../../Button"; // plasmic-import: fg07TcMEp1vM/component
 
 import { useScreenVariants as useScreenVariants_6Zx2C3KdhG } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6ZX-_2C3kdhG/globalVariant
@@ -79,6 +78,8 @@ import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: SSwrcuzll
 import Icon9Icon from "./icons/PlasmicIcon__Icon9"; // plasmic-import: Dw9Kw-Ug9oZZ/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: pwWlXfOSGjYC/icon
 import Icon5Icon from "./icons/PlasmicIcon__Icon5"; // plasmic-import: QfKkGFij0xBD/icon
+import Icon15Icon from "./icons/PlasmicIcon__Icon15"; // plasmic-import: DsAf4MvKUgnF/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: sorZQR68rKUo/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -99,13 +100,12 @@ export type PlasmicHomepage__OverridesType = {
   h2?: Flex__<"h2">;
   fragmentprofile?: Flex__<typeof ApiRequest>;
   loadingSvg?: Flex__<"svg">;
-  fragmentInput?: Flex__<typeof Input>;
+  link6?: Flex__<"svg">;
+  x12?: Flex__<"svg">;
+  whatsapp12?: Flex__<"svg">;
+  telegram12?: Flex__<"svg">;
+  eitaa12?: Flex__<"svg">;
   shareButtons?: Flex__<"div">;
-  link4?: Flex__<"svg">;
-  x7?: Flex__<"svg">;
-  whatsapp7?: Flex__<"svg">;
-  telegram7?: Flex__<"svg">;
-  eitaa7?: Flex__<"svg">;
   eitaaButton?: Flex__<typeof Button>;
   x5?: Flex__<"svg">;
   whatsapp5?: Flex__<"svg">;
@@ -127,13 +127,12 @@ export type PlasmicHomepage__OverridesType = {
   telegram4?: Flex__<"svg">;
   eitaa4?: Flex__<"svg">;
   fragmentbooking?: Flex__<typeof ApiRequest>;
-  fragmentInput2?: Flex__<typeof Input>;
+  link7?: Flex__<"svg">;
+  x13?: Flex__<"svg">;
+  whatsapp13?: Flex__<"svg">;
+  telegram13?: Flex__<"svg">;
+  eitaa13?: Flex__<"svg">;
   shareButtons2?: Flex__<"div">;
-  link5?: Flex__<"svg">;
-  x8?: Flex__<"svg">;
-  whatsapp8?: Flex__<"svg">;
-  telegram8?: Flex__<"svg">;
-  eitaa8?: Flex__<"svg">;
   eitaaButton2?: Flex__<typeof Button>;
   x6?: Flex__<"svg">;
   whatsapp6?: Flex__<"svg">;
@@ -154,6 +153,8 @@ export type PlasmicHomepage__OverridesType = {
   whatsapp11?: Flex__<"svg">;
   telegram11?: Flex__<"svg">;
   eitaa11?: Flex__<"svg">;
+  fragmentbusinessCard?: Flex__<typeof ApiRequest>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultHomepageProps {}
@@ -212,25 +213,6 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.fragmentprofile.data.short_url;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "fragmentbooking.data",
         type: "private",
         variableType: "object",
@@ -249,23 +231,22 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentInput2.value",
+        path: "fragmentbusinessCard.data",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.fragmentbooking.data.short_url;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentbusinessCard.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentbusinessCard.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -432,7 +413,11 @@ function PlasmicHomepage__RenderFunc(props: {
               })()}
               url={"https://srezas-n8n.darkube.app/webhook/shortener"}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__qpHpZ)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__qpHpZ)}
+              >
                 <h4
                   className={classNames(
                     projectcss.all,
@@ -442,27 +427,145 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u0634\u0645\u0627"
+                    "\u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644"
                   }
                 </h4>
-                <Input
-                  data-plasmic-name={"fragmentInput"}
-                  data-plasmic-override={overrides.fragmentInput}
-                  attributes={{ dir: "ltr" }}
-                  className={classNames("__wab_instance", sty.fragmentInput)}
-                  disabled={true}
-                  onChange={generateStateOnChangeProp($state, [
-                    "fragmentInput",
-                    "value"
-                  ])}
-                  placeholder={``}
-                  type={"text"}
-                  value={generateStateValueProp($state, [
-                    "fragmentInput",
-                    "value"
-                  ])}
-                />
+                <Button
+                  className={classNames("__wab_instance", sty.button__lk5If)}
+                  color={"softBlue"}
+                  endIcon={
+                    <React.Fragment>
+                      <Icon14Icon
+                        data-plasmic-name={"x12"}
+                        data-plasmic-override={overrides.x12}
+                        className={classNames(projectcss.all, sty.x12)}
+                        role={"img"}
+                      />
 
+                      <Icon11Icon
+                        data-plasmic-name={"whatsapp12"}
+                        data-plasmic-override={overrides.whatsapp12}
+                        className={classNames(projectcss.all, sty.whatsapp12)}
+                        role={"img"}
+                      />
+
+                      <Icon7Icon
+                        data-plasmic-name={"telegram12"}
+                        data-plasmic-override={overrides.telegram12}
+                        className={classNames(projectcss.all, sty.telegram12)}
+                        role={"img"}
+                      />
+
+                      <Icon9Icon
+                        data-plasmic-name={"eitaa12"}
+                        data-plasmic-override={overrides.eitaa12}
+                        className={classNames(projectcss.all, sty.eitaa12)}
+                        role={"img"}
+                      />
+                    </React.Fragment>
+                  }
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return $$.copyToClipboard(
+                                $state.fragmentprofile.data.short_url
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
+                              "top-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                  showEndIcon={true}
+                  startIcon={
+                    <React.Fragment>
+                      <ChecksvgIcon
+                        className={classNames(projectcss.all, sty.svg__loYBc)}
+                        role={"img"}
+                      />
+
+                      <Icon13Icon
+                        data-plasmic-name={"link6"}
+                        data-plasmic-override={overrides.link6}
+                        className={classNames(projectcss.all, sty.link6)}
+                        role={"img"}
+                      />
+                    </React.Fragment>
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jTpx4
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.fragmentprofile.data.short_url;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u06a9\u067e\u06cc";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </Button>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__u6RHf
+                  )}
+                >
+                  {
+                    "\u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u062f\u0631:"
+                  }
+                </div>
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"shareButtons"}
@@ -470,128 +573,6 @@ function PlasmicHomepage__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.shareButtons)}
                 >
-                  <Button
-                    className={classNames("__wab_instance", sty.button__s5VHv)}
-                    color={"softBlue"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon14Icon
-                          data-plasmic-name={"x7"}
-                          data-plasmic-override={overrides.x7}
-                          className={classNames(projectcss.all, sty.x7)}
-                          role={"img"}
-                        />
-
-                        <Icon11Icon
-                          data-plasmic-name={"whatsapp7"}
-                          data-plasmic-override={overrides.whatsapp7}
-                          className={classNames(projectcss.all, sty.whatsapp7)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram7"}
-                          data-plasmic-override={overrides.telegram7}
-                          className={classNames(projectcss.all, sty.telegram7)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa7"}
-                          data-plasmic-override={overrides.eitaa7}
-                          className={classNames(projectcss.all, sty.eitaa7)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return $$.copyToClipboard(
-                                  $state.fragmentInput.value
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
-                                "top-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-                    }}
-                    showEndIcon={true}
-                    startIcon={
-                      <React.Fragment>
-                        <ChecksvgIcon
-                          className={classNames(projectcss.all, sty.svg__fCgLv)}
-                          role={"img"}
-                        />
-
-                        <Icon13Icon
-                          data-plasmic-name={"link4"}
-                          data-plasmic-override={overrides.link4}
-                          className={classNames(projectcss.all, sty.link4)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__myv0K
-                      )}
-                    >
-                      {"\u06a9\u067e\u06cc"}
-                    </div>
-                  </Button>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__uAe2D
-                    )}
-                  >
-                    {
-                      "\u06cc\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u062f\u0631:"
-                    }
-                  </div>
                   <Button
                     data-plasmic-name={"eitaaButton"}
                     data-plasmic-override={overrides.eitaaButton}
@@ -811,12 +792,15 @@ function PlasmicHomepage__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    onClick={async event => {
+                      const $steps = {};
+                    }}
                     target={true}
                   >
                     {"\u0627\u06cc\u06a9\u0633"}
                   </Button>
                 </Stack__>
-              </div>
+              </Stack__>
             </ApiRequest>
             <ApiRequest
               data-plasmic-name={"fragmentbooking"}
@@ -897,7 +881,11 @@ function PlasmicHomepage__RenderFunc(props: {
               })()}
               url={"https://srezas-n8n.darkube.app/webhook/shortener/booking"}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__t7UGh)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__t7UGh)}
+              >
                 <h4
                   className={classNames(
                     projectcss.all,
@@ -907,27 +895,145 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u0635\u0641\u062d\u0647 \u0646\u0648\u0628\u062a \u062f\u0647\u06cc \u0634\u0645\u0627"
+                    "\u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u0646\u0648\u0628\u062a \u062f\u0647\u06cc"
                   }
                 </h4>
-                <Input
-                  data-plasmic-name={"fragmentInput2"}
-                  data-plasmic-override={overrides.fragmentInput2}
-                  attributes={{ dir: "ltr" }}
-                  className={classNames("__wab_instance", sty.fragmentInput2)}
-                  disabled={true}
-                  onChange={generateStateOnChangeProp($state, [
-                    "fragmentInput2",
-                    "value"
-                  ])}
-                  placeholder={``}
-                  type={"text"}
-                  value={generateStateValueProp($state, [
-                    "fragmentInput2",
-                    "value"
-                  ])}
-                />
+                <Button
+                  className={classNames("__wab_instance", sty.button__x6Fgs)}
+                  color={"softBlue"}
+                  endIcon={
+                    <React.Fragment>
+                      <Icon14Icon
+                        data-plasmic-name={"x13"}
+                        data-plasmic-override={overrides.x13}
+                        className={classNames(projectcss.all, sty.x13)}
+                        role={"img"}
+                      />
 
+                      <Icon11Icon
+                        data-plasmic-name={"whatsapp13"}
+                        data-plasmic-override={overrides.whatsapp13}
+                        className={classNames(projectcss.all, sty.whatsapp13)}
+                        role={"img"}
+                      />
+
+                      <Icon7Icon
+                        data-plasmic-name={"telegram13"}
+                        data-plasmic-override={overrides.telegram13}
+                        className={classNames(projectcss.all, sty.telegram13)}
+                        role={"img"}
+                      />
+
+                      <Icon9Icon
+                        data-plasmic-name={"eitaa13"}
+                        data-plasmic-override={overrides.eitaa13}
+                        className={classNames(projectcss.all, sty.eitaa13)}
+                        role={"img"}
+                      />
+                    </React.Fragment>
+                  }
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return $$.copyToClipboard(
+                                $state.fragmentbooking.data.short_url
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
+                              "top-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                  showEndIcon={true}
+                  startIcon={
+                    <React.Fragment>
+                      <ChecksvgIcon
+                        className={classNames(projectcss.all, sty.svg__rHgGq)}
+                        role={"img"}
+                      />
+
+                      <Icon13Icon
+                        data-plasmic-name={"link7"}
+                        data-plasmic-override={overrides.link7}
+                        className={classNames(projectcss.all, sty.link7)}
+                        role={"img"}
+                      />
+                    </React.Fragment>
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__hJe5E
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.fragmentbooking.data.short_url;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u06a9\u067e\u06cc";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </Button>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__iVjQo
+                  )}
+                >
+                  {
+                    "\u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u062f\u0631:"
+                  }
+                </div>
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"shareButtons2"}
@@ -935,128 +1041,6 @@ function PlasmicHomepage__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.shareButtons2)}
                 >
-                  <Button
-                    className={classNames("__wab_instance", sty.button__vvAeB)}
-                    color={"softBlue"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon14Icon
-                          data-plasmic-name={"x8"}
-                          data-plasmic-override={overrides.x8}
-                          className={classNames(projectcss.all, sty.x8)}
-                          role={"img"}
-                        />
-
-                        <Icon11Icon
-                          data-plasmic-name={"whatsapp8"}
-                          data-plasmic-override={overrides.whatsapp8}
-                          className={classNames(projectcss.all, sty.whatsapp8)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram8"}
-                          data-plasmic-override={overrides.telegram8}
-                          className={classNames(projectcss.all, sty.telegram8)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa8"}
-                          data-plasmic-override={overrides.eitaa8}
-                          className={classNames(projectcss.all, sty.eitaa8)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return $$.copyToClipboard(
-                                  $state.fragmentInput2.value
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
-                                "top-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-                    }}
-                    showEndIcon={true}
-                    startIcon={
-                      <React.Fragment>
-                        <ChecksvgIcon
-                          className={classNames(projectcss.all, sty.svg__mEaCg)}
-                          role={"img"}
-                        />
-
-                        <Icon13Icon
-                          data-plasmic-name={"link5"}
-                          data-plasmic-override={overrides.link5}
-                          className={classNames(projectcss.all, sty.link5)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___5JEg
-                      )}
-                    >
-                      {"\u06a9\u067e\u06cc"}
-                    </div>
-                  </Button>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rv8Ms
-                    )}
-                  >
-                    {
-                      "\u06cc\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u062f\u0631:"
-                    }
-                  </div>
                   <Button
                     data-plasmic-name={"eitaaButton2"}
                     data-plasmic-override={overrides.eitaaButton2}
@@ -1287,7 +1271,128 @@ function PlasmicHomepage__RenderFunc(props: {
                     {"\u0627\u06cc\u06a9\u0633"}
                   </Button>
                 </Stack__>
-              </div>
+              </Stack__>
+            </ApiRequest>
+            <ApiRequest
+              data-plasmic-name={"fragmentbusinessCard"}
+              data-plasmic-override={overrides.fragmentbusinessCard}
+              className={classNames("__wab_instance", sty.fragmentbusinessCard)}
+              errorDisplay={null}
+              loadingDisplay={null}
+              method={"GET"}
+              onError={generateStateOnChangeProp($state, [
+                "fragmentbusinessCard",
+                "error"
+              ])}
+              onLoading={generateStateOnChangeProp($state, [
+                "fragmentbusinessCard",
+                "loading"
+              ])}
+              onSuccess={generateStateOnChangeProp($state, [
+                "fragmentbusinessCard",
+                "data"
+              ])}
+              params={(() => {
+                try {
+                  return {
+                    user_id: $ctx.query.user_id
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://srezas-n8n.darkube.app/webhook/business-card"}
+            >
+              {(() => {
+                try {
+                  return $state.fragmentbusinessCard.data.has_pdf;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__rYk4)}
+                >
+                  <h4
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h4,
+                      projectcss.__wab_text,
+                      sty.h4__z1Rhe
+                    )}
+                  >
+                    {"\u06a9\u0627\u0631\u062a \u0648\u06cc\u0632\u06cc\u062a"}
+                  </h4>
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={(() => {
+                      try {
+                        return $state.fragmentbusinessCard.data.preview;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+
+                  <Button
+                    className={classNames("__wab_instance", sty.button__c5J5E)}
+                    color={"blue"}
+                    link={(() => {
+                      try {
+                        return $state.fragmentbusinessCard.data.pdf_url;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    showStartIcon={true}
+                    startIcon={
+                      <Icon15Icon
+                        className={classNames(projectcss.all, sty.svg__w9FEg)}
+                        role={"img"}
+                      />
+                    }
+                    target={true}
+                  >
+                    {"\u062f\u0627\u0646\u0644\u0648\u062f"}
+                  </Button>
+                </Stack__>
+              ) : null}
             </ApiRequest>
           </section>
         </div>
@@ -1303,13 +1408,12 @@ const PlasmicDescendants = {
     "h2",
     "fragmentprofile",
     "loadingSvg",
-    "fragmentInput",
+    "link6",
+    "x12",
+    "whatsapp12",
+    "telegram12",
+    "eitaa12",
     "shareButtons",
-    "link4",
-    "x7",
-    "whatsapp7",
-    "telegram7",
-    "eitaa7",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1331,13 +1435,12 @@ const PlasmicDescendants = {
     "telegram4",
     "eitaa4",
     "fragmentbooking",
-    "fragmentInput2",
+    "link7",
+    "x13",
+    "whatsapp13",
+    "telegram13",
+    "eitaa13",
     "shareButtons2",
-    "link5",
-    "x8",
-    "whatsapp8",
-    "telegram8",
-    "eitaa8",
     "eitaaButton2",
     "x6",
     "whatsapp6",
@@ -1357,20 +1460,21 @@ const PlasmicDescendants = {
     "x11",
     "whatsapp11",
     "telegram11",
-    "eitaa11"
+    "eitaa11",
+    "fragmentbusinessCard",
+    "img"
   ],
   section: [
     "section",
     "h2",
     "fragmentprofile",
     "loadingSvg",
-    "fragmentInput",
+    "link6",
+    "x12",
+    "whatsapp12",
+    "telegram12",
+    "eitaa12",
     "shareButtons",
-    "link4",
-    "x7",
-    "whatsapp7",
-    "telegram7",
-    "eitaa7",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1392,13 +1496,12 @@ const PlasmicDescendants = {
     "telegram4",
     "eitaa4",
     "fragmentbooking",
-    "fragmentInput2",
+    "link7",
+    "x13",
+    "whatsapp13",
+    "telegram13",
+    "eitaa13",
     "shareButtons2",
-    "link5",
-    "x8",
-    "whatsapp8",
-    "telegram8",
-    "eitaa8",
     "eitaaButton2",
     "x6",
     "whatsapp6",
@@ -1418,19 +1521,20 @@ const PlasmicDescendants = {
     "x11",
     "whatsapp11",
     "telegram11",
-    "eitaa11"
+    "eitaa11",
+    "fragmentbusinessCard",
+    "img"
   ],
   h2: ["h2"],
   fragmentprofile: [
     "fragmentprofile",
     "loadingSvg",
-    "fragmentInput",
+    "link6",
+    "x12",
+    "whatsapp12",
+    "telegram12",
+    "eitaa12",
     "shareButtons",
-    "link4",
-    "x7",
-    "whatsapp7",
-    "telegram7",
-    "eitaa7",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1453,14 +1557,13 @@ const PlasmicDescendants = {
     "eitaa4"
   ],
   loadingSvg: ["loadingSvg"],
-  fragmentInput: ["fragmentInput"],
+  link6: ["link6"],
+  x12: ["x12"],
+  whatsapp12: ["whatsapp12"],
+  telegram12: ["telegram12"],
+  eitaa12: ["eitaa12"],
   shareButtons: [
     "shareButtons",
-    "link4",
-    "x7",
-    "whatsapp7",
-    "telegram7",
-    "eitaa7",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1482,11 +1585,6 @@ const PlasmicDescendants = {
     "telegram4",
     "eitaa4"
   ],
-  link4: ["link4"],
-  x7: ["x7"],
-  whatsapp7: ["whatsapp7"],
-  telegram7: ["telegram7"],
-  eitaa7: ["eitaa7"],
   eitaaButton: ["eitaaButton", "x5", "whatsapp5", "telegram5", "eitaa5"],
   x5: ["x5"],
   whatsapp5: ["whatsapp5"],
@@ -1509,13 +1607,12 @@ const PlasmicDescendants = {
   eitaa4: ["eitaa4"],
   fragmentbooking: [
     "fragmentbooking",
-    "fragmentInput2",
+    "link7",
+    "x13",
+    "whatsapp13",
+    "telegram13",
+    "eitaa13",
     "shareButtons2",
-    "link5",
-    "x8",
-    "whatsapp8",
-    "telegram8",
-    "eitaa8",
     "eitaaButton2",
     "x6",
     "whatsapp6",
@@ -1537,14 +1634,13 @@ const PlasmicDescendants = {
     "telegram11",
     "eitaa11"
   ],
-  fragmentInput2: ["fragmentInput2"],
+  link7: ["link7"],
+  x13: ["x13"],
+  whatsapp13: ["whatsapp13"],
+  telegram13: ["telegram13"],
+  eitaa13: ["eitaa13"],
   shareButtons2: [
     "shareButtons2",
-    "link5",
-    "x8",
-    "whatsapp8",
-    "telegram8",
-    "eitaa8",
     "eitaaButton2",
     "x6",
     "whatsapp6",
@@ -1566,11 +1662,6 @@ const PlasmicDescendants = {
     "telegram11",
     "eitaa11"
   ],
-  link5: ["link5"],
-  x8: ["x8"],
-  whatsapp8: ["whatsapp8"],
-  telegram8: ["telegram8"],
-  eitaa8: ["eitaa8"],
   eitaaButton2: ["eitaaButton2", "x6", "whatsapp6", "telegram6", "eitaa6"],
   x6: ["x6"],
   whatsapp6: ["whatsapp6"],
@@ -1608,7 +1699,9 @@ const PlasmicDescendants = {
   x11: ["x11"],
   whatsapp11: ["whatsapp11"],
   telegram11: ["telegram11"],
-  eitaa11: ["eitaa11"]
+  eitaa11: ["eitaa11"],
+  fragmentbusinessCard: ["fragmentbusinessCard", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1619,13 +1712,12 @@ type NodeDefaultElementType = {
   h2: "h2";
   fragmentprofile: typeof ApiRequest;
   loadingSvg: "svg";
-  fragmentInput: typeof Input;
+  link6: "svg";
+  x12: "svg";
+  whatsapp12: "svg";
+  telegram12: "svg";
+  eitaa12: "svg";
   shareButtons: "div";
-  link4: "svg";
-  x7: "svg";
-  whatsapp7: "svg";
-  telegram7: "svg";
-  eitaa7: "svg";
   eitaaButton: typeof Button;
   x5: "svg";
   whatsapp5: "svg";
@@ -1647,13 +1739,12 @@ type NodeDefaultElementType = {
   telegram4: "svg";
   eitaa4: "svg";
   fragmentbooking: typeof ApiRequest;
-  fragmentInput2: typeof Input;
+  link7: "svg";
+  x13: "svg";
+  whatsapp13: "svg";
+  telegram13: "svg";
+  eitaa13: "svg";
   shareButtons2: "div";
-  link5: "svg";
-  x8: "svg";
-  whatsapp8: "svg";
-  telegram8: "svg";
-  eitaa8: "svg";
   eitaaButton2: typeof Button;
   x6: "svg";
   whatsapp6: "svg";
@@ -1674,6 +1765,8 @@ type NodeDefaultElementType = {
   whatsapp11: "svg";
   telegram11: "svg";
   eitaa11: "svg";
+  fragmentbusinessCard: typeof ApiRequest;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1740,13 +1833,12 @@ export const PlasmicHomepage = Object.assign(
     h2: makeNodeComponent("h2"),
     fragmentprofile: makeNodeComponent("fragmentprofile"),
     loadingSvg: makeNodeComponent("loadingSvg"),
-    fragmentInput: makeNodeComponent("fragmentInput"),
+    link6: makeNodeComponent("link6"),
+    x12: makeNodeComponent("x12"),
+    whatsapp12: makeNodeComponent("whatsapp12"),
+    telegram12: makeNodeComponent("telegram12"),
+    eitaa12: makeNodeComponent("eitaa12"),
     shareButtons: makeNodeComponent("shareButtons"),
-    link4: makeNodeComponent("link4"),
-    x7: makeNodeComponent("x7"),
-    whatsapp7: makeNodeComponent("whatsapp7"),
-    telegram7: makeNodeComponent("telegram7"),
-    eitaa7: makeNodeComponent("eitaa7"),
     eitaaButton: makeNodeComponent("eitaaButton"),
     x5: makeNodeComponent("x5"),
     whatsapp5: makeNodeComponent("whatsapp5"),
@@ -1768,13 +1860,12 @@ export const PlasmicHomepage = Object.assign(
     telegram4: makeNodeComponent("telegram4"),
     eitaa4: makeNodeComponent("eitaa4"),
     fragmentbooking: makeNodeComponent("fragmentbooking"),
-    fragmentInput2: makeNodeComponent("fragmentInput2"),
+    link7: makeNodeComponent("link7"),
+    x13: makeNodeComponent("x13"),
+    whatsapp13: makeNodeComponent("whatsapp13"),
+    telegram13: makeNodeComponent("telegram13"),
+    eitaa13: makeNodeComponent("eitaa13"),
     shareButtons2: makeNodeComponent("shareButtons2"),
-    link5: makeNodeComponent("link5"),
-    x8: makeNodeComponent("x8"),
-    whatsapp8: makeNodeComponent("whatsapp8"),
-    telegram8: makeNodeComponent("telegram8"),
-    eitaa8: makeNodeComponent("eitaa8"),
     eitaaButton2: makeNodeComponent("eitaaButton2"),
     x6: makeNodeComponent("x6"),
     whatsapp6: makeNodeComponent("whatsapp6"),
@@ -1795,6 +1886,8 @@ export const PlasmicHomepage = Object.assign(
     whatsapp11: makeNodeComponent("whatsapp11"),
     telegram11: makeNodeComponent("telegram11"),
     eitaa11: makeNodeComponent("eitaa11"),
+    fragmentbusinessCard: makeNodeComponent("fragmentbusinessCard"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

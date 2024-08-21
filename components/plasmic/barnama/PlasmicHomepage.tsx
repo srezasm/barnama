@@ -61,11 +61,17 @@ import {
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: b2vEI7YNG0dM/codeComponent
 import Button from "../../Button"; // plasmic-import: fg07TcMEp1vM/component
+import Dialog from "../../Dialog"; // plasmic-import: ZhyzlrsmIhLT/component
+import TextInput from "../../TextInput"; // plasmic-import: WeG-0Eugh_P9/component
+import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6Zx2C3KdhG } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6ZX-_2C3kdhG/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: v57deDbCRSiUfTDw1tW741/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: Vr6w4OQ1QIr8/css
 
@@ -78,7 +84,8 @@ import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: SSwrcuzll
 import Icon9Icon from "./icons/PlasmicIcon__Icon9"; // plasmic-import: Dw9Kw-Ug9oZZ/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: pwWlXfOSGjYC/icon
 import Icon5Icon from "./icons/PlasmicIcon__Icon5"; // plasmic-import: QfKkGFij0xBD/icon
-import Icon15Icon from "./icons/PlasmicIcon__Icon15"; // plasmic-import: DsAf4MvKUgnF/icon
+import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: KIkecbYpwuHF/icon
+import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: QRd2eX6oFzLw/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: sorZQR68rKUo/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
@@ -100,12 +107,12 @@ export type PlasmicHomepage__OverridesType = {
   h2?: Flex__<"h2">;
   fragmentprofile?: Flex__<typeof ApiRequest>;
   loadingSvg?: Flex__<"svg">;
+  shareButtons?: Flex__<"div">;
   link6?: Flex__<"svg">;
   x12?: Flex__<"svg">;
   whatsapp12?: Flex__<"svg">;
   telegram12?: Flex__<"svg">;
   eitaa12?: Flex__<"svg">;
-  shareButtons?: Flex__<"div">;
   eitaaButton?: Flex__<typeof Button>;
   x5?: Flex__<"svg">;
   whatsapp5?: Flex__<"svg">;
@@ -121,40 +128,15 @@ export type PlasmicHomepage__OverridesType = {
   whatsapp3?: Flex__<"svg">;
   telegram3?: Flex__<"svg">;
   eitaa3?: Flex__<"svg">;
-  twitterButton?: Flex__<typeof Button>;
+  dialog?: Flex__<typeof Dialog>;
+  contact?: Flex__<typeof TextInput>;
+  collapse?: Flex__<typeof AntdSingleCollapse>;
+  textarea?: Flex__<"textarea">;
   x4?: Flex__<"svg">;
   whatsapp4?: Flex__<"svg">;
   telegram4?: Flex__<"svg">;
   eitaa4?: Flex__<"svg">;
-  fragmentbooking?: Flex__<typeof ApiRequest>;
-  link7?: Flex__<"svg">;
-  x13?: Flex__<"svg">;
-  whatsapp13?: Flex__<"svg">;
-  telegram13?: Flex__<"svg">;
-  eitaa13?: Flex__<"svg">;
-  shareButtons2?: Flex__<"div">;
-  eitaaButton2?: Flex__<typeof Button>;
-  x6?: Flex__<"svg">;
-  whatsapp6?: Flex__<"svg">;
-  telegram6?: Flex__<"svg">;
-  eitaa6?: Flex__<"svg">;
-  whatsappButton2?: Flex__<typeof Button>;
-  x9?: Flex__<"svg">;
-  whatsapp9?: Flex__<"svg">;
-  telegram9?: Flex__<"svg">;
-  eitaa9?: Flex__<"svg">;
-  telegramButton2?: Flex__<typeof Button>;
-  x10?: Flex__<"svg">;
-  whatsapp10?: Flex__<"svg">;
-  telegram10?: Flex__<"svg">;
-  eitaa10?: Flex__<"svg">;
-  twitterButton2?: Flex__<typeof Button>;
-  x11?: Flex__<"svg">;
-  whatsapp11?: Flex__<"svg">;
-  telegram11?: Flex__<"svg">;
-  eitaa11?: Flex__<"svg">;
-  fragmentbusinessCard?: Flex__<typeof ApiRequest>;
-  img?: Flex__<typeof PlasmicImg__>;
+  link3?: Flex__<"svg">;
 };
 
 export interface DefaultHomepageProps {}
@@ -213,40 +195,36 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentbooking.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "fragmentbooking.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "fragmentbooking.loading",
+        path: "dialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "fragmentbusinessCard.data",
+        path: "printableFileName",
         type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
-        path: "fragmentbusinessCard.error",
+        path: "contact.value",
         type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "fragmentbusinessCard.loading",
+        path: "collapse.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "textarea.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -284,6 +262,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
           dir={"rtl"}
@@ -328,10 +307,31 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.h2
               )}
             >
-              {
-                "\u0628\u0647\u062a\u0631 \u062f\u06cc\u062f\u0647 \u0634\u0648\u06cc\u062f"
-              }
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "\u0628\u0647\u062a\u0631 \u062f\u06cc\u062f\u0647 \u0634\u0648\u06cc\u062f "
+                  }
+                </React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ color: "#028C00" }}
+                >
+                  {"(\u0646\u0633\u062e\u0647 \u0627\u0648\u0644\u06cc\u0647)"}
+                </span>
+              </React.Fragment>
             </h2>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__cMyJ1
+              )}
+            >
+              {
+                "\u0628\u0627 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0635\u0641\u062d\u0647 \u0648 \u0628\u0631\u0646\u062f \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u062a\u0631 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f."
+              }
+            </div>
             <ApiRequest
               data-plasmic-name={"fragmentprofile"}
               data-plasmic-override={overrides.fragmentprofile}
@@ -427,143 +427,18 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644"
+                    "\u0622\u062f\u0631\u0633 \u0633\u0631\u0631\u0627\u0633\u062a"
                   }
                 </h4>
-                <Button
-                  className={classNames("__wab_instance", sty.button__lk5If)}
-                  color={"softBlue"}
-                  endIcon={
-                    <React.Fragment>
-                      <Icon14Icon
-                        data-plasmic-name={"x12"}
-                        data-plasmic-override={overrides.x12}
-                        className={classNames(projectcss.all, sty.x12)}
-                        role={"img"}
-                      />
-
-                      <Icon11Icon
-                        data-plasmic-name={"whatsapp12"}
-                        data-plasmic-override={overrides.whatsapp12}
-                        className={classNames(projectcss.all, sty.whatsapp12)}
-                        role={"img"}
-                      />
-
-                      <Icon7Icon
-                        data-plasmic-name={"telegram12"}
-                        data-plasmic-override={overrides.telegram12}
-                        className={classNames(projectcss.all, sty.telegram12)}
-                        role={"img"}
-                      />
-
-                      <Icon9Icon
-                        data-plasmic-name={"eitaa12"}
-                        data-plasmic-override={overrides.eitaa12}
-                        className={classNames(projectcss.all, sty.eitaa12)}
-                        role={"img"}
-                      />
-                    </React.Fragment>
-                  }
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return $$.copyToClipboard(
-                                $state.fragmentprofile.data.short_url
-                              );
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
-                              "top-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-                  }}
-                  showEndIcon={true}
-                  startIcon={
-                    <React.Fragment>
-                      <ChecksvgIcon
-                        className={classNames(projectcss.all, sty.svg__loYBc)}
-                        role={"img"}
-                      />
-
-                      <Icon13Icon
-                        data-plasmic-name={"link6"}
-                        data-plasmic-override={overrides.link6}
-                        className={classNames(projectcss.all, sty.link6)}
-                        role={"img"}
-                      />
-                    </React.Fragment>
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jTpx4
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.fragmentprofile.data.short_url;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u06a9\u067e\u06cc";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Button>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__u6RHf
+                    sty.text__dHOqh
                   )}
                 >
                   {
-                    "\u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u062f\u0631:"
+                    "\u0628\u0627 \u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u0632\u06cc\u0631 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u067e\u0631\u0648\u0641\u0627\u06cc\u0644\u062a\u0627\u0646 \u0631\u0627 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f."
                   }
                 </div>
                 <Stack__
@@ -573,6 +448,131 @@ function PlasmicHomepage__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.shareButtons)}
                 >
+                  <Button
+                    className={classNames("__wab_instance", sty.button__lk5If)}
+                    color={"softBlue"}
+                    endIcon={
+                      <React.Fragment>
+                        <Icon14Icon
+                          data-plasmic-name={"x12"}
+                          data-plasmic-override={overrides.x12}
+                          className={classNames(projectcss.all, sty.x12)}
+                          role={"img"}
+                        />
+
+                        <Icon11Icon
+                          data-plasmic-name={"whatsapp12"}
+                          data-plasmic-override={overrides.whatsapp12}
+                          className={classNames(projectcss.all, sty.whatsapp12)}
+                          role={"img"}
+                        />
+
+                        <Icon7Icon
+                          data-plasmic-name={"telegram12"}
+                          data-plasmic-override={overrides.telegram12}
+                          className={classNames(projectcss.all, sty.telegram12)}
+                          role={"img"}
+                        />
+
+                        <Icon9Icon
+                          data-plasmic-name={"eitaa12"}
+                          data-plasmic-override={overrides.eitaa12}
+                          className={classNames(projectcss.all, sty.eitaa12)}
+                          role={"img"}
+                        />
+                      </React.Fragment>
+                    }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return $$.copyToClipboard(
+                                  $state.fragmentprofile.data.short_url
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
+                                "top-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+                    }}
+                    showEndIcon={true}
+                    startIcon={
+                      <React.Fragment>
+                        <ChecksvgIcon
+                          className={classNames(projectcss.all, sty.svg__loYBc)}
+                          role={"img"}
+                        />
+
+                        <Icon13Icon
+                          data-plasmic-name={"link6"}
+                          data-plasmic-override={overrides.link6}
+                          className={classNames(projectcss.all, sty.link6)}
+                          role={"img"}
+                        />
+                      </React.Fragment>
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jTpx4
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.fragmentprofile.data.short_url;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u06a9\u067e\u06cc";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Button>
                   <Button
                     data-plasmic-name={"eitaaButton"}
                     data-plasmic-override={overrides.eitaaButton}
@@ -741,659 +741,1049 @@ function PlasmicHomepage__RenderFunc(props: {
                   >
                     {"\u062a\u0644\u06af\u0631\u0627\u0645"}
                   </Button>
-                  <Button
-                    data-plasmic-name={"twitterButton"}
-                    data-plasmic-override={overrides.twitterButton}
-                    className={classNames("__wab_instance", sty.twitterButton)}
-                    color={"twitter"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon6Icon
-                          data-plasmic-name={"x4"}
-                          data-plasmic-override={overrides.x4}
-                          className={classNames(projectcss.all, sty.x4)}
-                          role={"img"}
-                        />
-
-                        <Icon5Icon
-                          data-plasmic-name={"whatsapp4"}
-                          data-plasmic-override={overrides.whatsapp4}
-                          className={classNames(projectcss.all, sty.whatsapp4)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram4"}
-                          data-plasmic-override={overrides.telegram4}
-                          className={classNames(projectcss.all, sty.telegram4)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa4"}
-                          data-plasmic-override={overrides.eitaa4}
-                          className={classNames(projectcss.all, sty.eitaa4)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    link={(() => {
-                      try {
-                        return (() => {
-                          return `https://twitter.com/intent/tweet?text=پروفایل دکتر ${$state.fragmentprofile.data.name} در پذیرش۲۴&url=${$state.fragmentprofile.data.short_url}`;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    onClick={async event => {
-                      const $steps = {};
-                    }}
-                    target={true}
-                  >
-                    {"\u0627\u06cc\u06a9\u0633"}
-                  </Button>
                 </Stack__>
               </Stack__>
             </ApiRequest>
-            <ApiRequest
-              data-plasmic-name={"fragmentbooking"}
-              data-plasmic-override={overrides.fragmentbooking}
-              className={classNames("__wab_instance", sty.fragmentbooking)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__z83Fv
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $state.fragmentbooking.error.message;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "Error fetching data";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-              }
-              loadingDisplay={
-                <React.Fragment>
-                  <Icon3Icon
-                    className={classNames(projectcss.all, sty.svg__myVcd)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bnYW
-                    )}
-                  >
-                    {
-                      "\u062f\u0631\u062d\u0627\u0644 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a .."
-                    }
-                  </div>
-                </React.Fragment>
-              }
-              method={"GET"}
-              onError={generateStateOnChangeProp($state, [
-                "fragmentbooking",
-                "error"
-              ])}
-              onLoading={generateStateOnChangeProp($state, [
-                "fragmentbooking",
-                "loading"
-              ])}
-              onSuccess={generateStateOnChangeProp($state, [
-                "fragmentbooking",
-                "data"
-              ])}
-              params={(() => {
-                try {
-                  return {
-                    user_id: $ctx.query.user_id
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://srezas-n8n.darkube.app/webhook/shortener/booking"}
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__rYk4)}
             >
+              <h4
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h4,
+                  projectcss.__wab_text,
+                  sty.h4__z1Rhe
+                )}
+              >
+                {"\u0686\u0627\u067e\u062e\u0627\u0646\u0647"}
+              </h4>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gyCd
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>
+                    {
+                      "\u0627\u0632 \u0628\u06cc\u0646 \u0622\u06cc\u062a\u0645\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u062d\u062f\u0627\u06a9\u062b\u0631 "
+                    }
+                  </React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "#00B51F" }}
+                  >
+                    {"\u0633\u0647 \u0645\u0648\u0631\u062f"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      " \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f \u062a\u0627 \u0641\u0627\u06cc\u0644 \u0642\u0627\u0628\u0644 \u0686\u0627\u067e \u0645\u062e\u0635\u0648\u0635 \u062e\u0648\u062f\u062a\u0627\u0646 \u062a\u0627 \u062d\u062f\u0627\u06a9\u062b\u0631 \u06f1 \u0631\u0648\u0632 \u06a9\u0627\u0631\u06cc\u060c \u0628\u0647 "
+                    }
+                  </React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ color: "#00B51F", fontWeight: 700 }}
+                  >
+                    {"\u0631\u0627\u06cc\u06af\u0627\u0646"}
+                  </span>
+                  <React.Fragment>
+                    {
+                      " \u0628\u0631\u0627\u06cc\u062a\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0634\u0648\u062f."
+                    }
+                  </React.Fragment>
+                </React.Fragment>
+              </div>
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__t7UGh)}
+                className={classNames(projectcss.all, sty.freeBox__apKhc)}
               >
-                <h4
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.h4,
-                    projectcss.__wab_text,
-                    sty.h4__w4TXz
-                  )}
-                >
-                  {
-                    "\u0644\u06cc\u0646\u06a9 \u06a9\u0648\u062a\u0627\u0647 \u0646\u0648\u0628\u062a \u062f\u0647\u06cc"
-                  }
-                </h4>
-                <Button
-                  className={classNames("__wab_instance", sty.button__x6Fgs)}
-                  color={"softBlue"}
-                  endIcon={
-                    <React.Fragment>
-                      <Icon14Icon
-                        data-plasmic-name={"x13"}
-                        data-plasmic-override={overrides.x13}
-                        className={classNames(projectcss.all, sty.x13)}
-                        role={"img"}
-                      />
-
-                      <Icon11Icon
-                        data-plasmic-name={"whatsapp13"}
-                        data-plasmic-override={overrides.whatsapp13}
-                        className={classNames(projectcss.all, sty.whatsapp13)}
-                        role={"img"}
-                      />
-
-                      <Icon7Icon
-                        data-plasmic-name={"telegram13"}
-                        data-plasmic-override={overrides.telegram13}
-                        className={classNames(projectcss.all, sty.telegram13)}
-                        role={"img"}
-                      />
-
-                      <Icon9Icon
-                        data-plasmic-name={"eitaa13"}
-                        data-plasmic-override={overrides.eitaa13}
-                        className={classNames(projectcss.all, sty.eitaa13)}
-                        role={"img"}
-                      />
-                    </React.Fragment>
-                  }
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return $$.copyToClipboard(
-                                $state.fragmentbooking.data.short_url
-                              );
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "\u0644\u06cc\u0646\u06a9 \u06a9\u067e\u06cc \u0634\u062f",
-                              "top-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-                  }}
-                  showEndIcon={true}
-                  startIcon={
-                    <React.Fragment>
-                      <ChecksvgIcon
-                        className={classNames(projectcss.all, sty.svg__rHgGq)}
-                        role={"img"}
-                      />
-
-                      <Icon13Icon
-                        data-plasmic-name={"link7"}
-                        data-plasmic-override={overrides.link7}
-                        className={classNames(projectcss.all, sty.link7)}
-                        role={"img"}
-                      />
-                    </React.Fragment>
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hJe5E
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.fragmentbooking.data.short_url;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u06a9\u067e\u06cc";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Button>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iVjQo
-                  )}
-                >
-                  {
-                    "\u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u062f\u0631:"
-                  }
-                </div>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"shareButtons2"}
-                  data-plasmic-override={overrides.shareButtons2}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.shareButtons2)}
-                >
-                  <Button
-                    data-plasmic-name={"eitaaButton2"}
-                    data-plasmic-override={overrides.eitaaButton2}
-                    className={classNames("__wab_instance", sty.eitaaButton2)}
-                    color={"eitaa"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon6Icon
-                          data-plasmic-name={"x6"}
-                          data-plasmic-override={overrides.x6}
-                          className={classNames(projectcss.all, sty.x6)}
-                          role={"img"}
-                        />
-
-                        <Icon5Icon
-                          data-plasmic-name={"whatsapp6"}
-                          data-plasmic-override={overrides.whatsapp6}
-                          className={classNames(projectcss.all, sty.whatsapp6)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram6"}
-                          data-plasmic-override={overrides.telegram6}
-                          className={classNames(projectcss.all, sty.telegram6)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa6"}
-                          data-plasmic-override={overrides.eitaa6}
-                          className={classNames(projectcss.all, sty.eitaa6)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    link={(() => {
-                      try {
-                        return (() => {
-                          return `https://eitaa.com/share/url?url=${$state.fragmentbooking.data.short_url}`;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    showEndIcon={true}
-                    target={true}
-                  >
-                    {"\u0627\u06cc\u062a\u0627"}
-                  </Button>
-                  <Button
-                    data-plasmic-name={"whatsappButton2"}
-                    data-plasmic-override={overrides.whatsappButton2}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.whatsappButton2
-                    )}
-                    color={"whatsapp"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon6Icon
-                          data-plasmic-name={"x9"}
-                          data-plasmic-override={overrides.x9}
-                          className={classNames(projectcss.all, sty.x9)}
-                          role={"img"}
-                        />
-
-                        <Icon11Icon
-                          data-plasmic-name={"whatsapp9"}
-                          data-plasmic-override={overrides.whatsapp9}
-                          className={classNames(projectcss.all, sty.whatsapp9)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram9"}
-                          data-plasmic-override={overrides.telegram9}
-                          className={classNames(projectcss.all, sty.telegram9)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa9"}
-                          data-plasmic-override={overrides.eitaa9}
-                          className={classNames(projectcss.all, sty.eitaa9)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    link={(() => {
-                      try {
-                        return (() => {
-                          return `https://wa.me/?text=${$state.fragmentbooking.data.short_url}`;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    showEndIcon={true}
-                    target={true}
-                  >
-                    {"\u0648\u0627\u062a\u0633\u0627\u067e"}
-                  </Button>
-                  <Button
-                    data-plasmic-name={"telegramButton2"}
-                    data-plasmic-override={overrides.telegramButton2}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.telegramButton2
-                    )}
-                    color={"telegram"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon6Icon
-                          data-plasmic-name={"x10"}
-                          data-plasmic-override={overrides.x10}
-                          className={classNames(projectcss.all, sty.x10)}
-                          role={"img"}
-                        />
-
-                        <Icon5Icon
-                          data-plasmic-name={"whatsapp10"}
-                          data-plasmic-override={overrides.whatsapp10}
-                          className={classNames(projectcss.all, sty.whatsapp10)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram10"}
-                          data-plasmic-override={overrides.telegram10}
-                          className={classNames(projectcss.all, sty.telegram10)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa10"}
-                          data-plasmic-override={overrides.eitaa10}
-                          className={classNames(projectcss.all, sty.eitaa10)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    link={(() => {
-                      try {
-                        return (() => {
-                          return `https://t.me/share/url?text=پروفایل دکتر ${$state.fragmentbooking.data.name} در پذیرش۲۴&url=${$state.fragmentbooking.data.short_url}`;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    showEndIcon={true}
-                    target={true}
-                  >
-                    {"\u062a\u0644\u06af\u0631\u0627\u0645"}
-                  </Button>
-                  <Button
-                    data-plasmic-name={"twitterButton2"}
-                    data-plasmic-override={overrides.twitterButton2}
-                    className={classNames("__wab_instance", sty.twitterButton2)}
-                    color={"twitter"}
-                    endIcon={
-                      <React.Fragment>
-                        <Icon6Icon
-                          data-plasmic-name={"x11"}
-                          data-plasmic-override={overrides.x11}
-                          className={classNames(projectcss.all, sty.x11)}
-                          role={"img"}
-                        />
-
-                        <Icon5Icon
-                          data-plasmic-name={"whatsapp11"}
-                          data-plasmic-override={overrides.whatsapp11}
-                          className={classNames(projectcss.all, sty.whatsapp11)}
-                          role={"img"}
-                        />
-
-                        <Icon7Icon
-                          data-plasmic-name={"telegram11"}
-                          data-plasmic-override={overrides.telegram11}
-                          className={classNames(projectcss.all, sty.telegram11)}
-                          role={"img"}
-                        />
-
-                        <Icon9Icon
-                          data-plasmic-name={"eitaa11"}
-                          data-plasmic-override={overrides.eitaa11}
-                          className={classNames(projectcss.all, sty.eitaa11)}
-                          role={"img"}
-                        />
-                      </React.Fragment>
-                    }
-                    link={(() => {
-                      try {
-                        return (() => {
-                          return `https://twitter.com/intent/tweet?text=پروفایل دکتر ${$state.fragmentbooking.data.name} در پذیرش۲۴&url=${$state.fragmentbooking.data.short_url}`;
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    target={true}
-                  >
-                    {"\u0627\u06cc\u06a9\u0633"}
-                  </Button>
-                </Stack__>
-              </Stack__>
-            </ApiRequest>
-            <ApiRequest
-              data-plasmic-name={"fragmentbusinessCard"}
-              data-plasmic-override={overrides.fragmentbusinessCard}
-              className={classNames("__wab_instance", sty.fragmentbusinessCard)}
-              errorDisplay={null}
-              loadingDisplay={null}
-              method={"GET"}
-              onError={generateStateOnChangeProp($state, [
-                "fragmentbusinessCard",
-                "error"
-              ])}
-              onLoading={generateStateOnChangeProp($state, [
-                "fragmentbusinessCard",
-                "loading"
-              ])}
-              onSuccess={generateStateOnChangeProp($state, [
-                "fragmentbusinessCard",
-                "data"
-              ])}
-              params={(() => {
-                try {
-                  return {
-                    user_id: $ctx.query.user_id
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://srezas-n8n.darkube.app/webhook/business-card"}
-            >
-              {(() => {
-                try {
-                  return $state.fragmentbusinessCard.data.has_pdf;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__rYk4)}
-                >
-                  <h4
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h4,
-                      projectcss.__wab_text,
-                      sty.h4__z1Rhe
-                    )}
-                  >
-                    {"\u06a9\u0627\u0631\u062a \u0648\u06cc\u0632\u06cc\u062a"}
-                  </h4>
+                <div className={classNames(projectcss.all, sty.freeBox__sBzvu)}>
                   <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
                     alt={""}
-                    className={classNames(sty.img)}
-                    displayHeight={"auto"}
+                    className={classNames(sty.img__wBxS3)}
+                    displayHeight={"470px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
                     displayMinHeight={"0"}
                     displayMinWidth={"0"}
-                    displayWidth={"auto"}
+                    displayWidth={"786px"}
                     loading={"lazy"}
-                    src={(() => {
-                      try {
-                        return $state.fragmentbusinessCard.data.preview;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  />
+                    onClick={async event => {
+                      const $steps = {};
 
-                  <Button
-                    className={classNames("__wab_instance", sty.button__c5J5E)}
-                    color={"blue"}
-                    link={(() => {
-                      try {
-                        return $state.fragmentbusinessCard.data.pdf_url;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
+                      $steps["updatePrintableFileName"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["printableFileName"]
+                              },
+                              operation: 0,
+                              value: "business card"
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePrintableFileName"] != null &&
+                        typeof $steps["updatePrintableFileName"] === "object" &&
+                        typeof $steps["updatePrintableFileName"].then ===
+                          "function"
+                      ) {
+                        $steps["updatePrintableFileName"] = await $steps[
+                          "updatePrintableFileName"
+                        ];
                       }
-                    })()}
-                    showStartIcon={true}
-                    startIcon={
-                      <Icon15Icon
-                        className={classNames(projectcss.all, sty.svg__w9FEg)}
+
+                      $steps["updateDialogOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpen"] != null &&
+                        typeof $steps["updateDialogOpen"] === "object" &&
+                        typeof $steps["updateDialogOpen"].then === "function"
+                      ) {
+                        $steps["updateDialogOpen"] = await $steps[
+                          "updateDialogOpen"
+                        ];
+                      }
+                    }}
+                    src={{
+                      src: "/plasmic/barnama/images/businessCardMinjpg.jpg",
+                      fullWidth: 2910,
+                      fullHeight: 2196,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__q56Vb)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__aCqHj)}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__qllNf)}
+                      displayHeight={"212px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"427px"}
+                      loading={"lazy"}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePrintableFileName"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFileName"]
+                                },
+                                operation: 0,
+                                value: "doctor page poster"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePrintableFileName"] != null &&
+                          typeof $steps["updatePrintableFileName"] ===
+                            "object" &&
+                          typeof $steps["updatePrintableFileName"].then ===
+                            "function"
+                        ) {
+                          $steps["updatePrintableFileName"] = await $steps[
+                            "updatePrintableFileName"
+                          ];
+                        }
+
+                        $steps["updateDialogOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen"] != null &&
+                          typeof $steps["updateDialogOpen"] === "object" &&
+                          typeof $steps["updateDialogOpen"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen"] = await $steps[
+                            "updateDialogOpen"
+                          ];
+                        }
+                      }}
+                      src={{
+                        src: "/plasmic/barnama/images/posterMinjpg.jpg",
+                        fullWidth: 3000,
+                        fullHeight: 2250,
+                        aspectRatio: undefined
+                      }}
+                    />
+
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__phkRc)}
+                      displayHeight={"183px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"495px"}
+                      loading={"lazy"}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePrintableFileName"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFileName"]
+                                },
+                                operation: 0,
+                                value: "enter without company"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePrintableFileName"] != null &&
+                          typeof $steps["updatePrintableFileName"] ===
+                            "object" &&
+                          typeof $steps["updatePrintableFileName"].then ===
+                            "function"
+                        ) {
+                          $steps["updatePrintableFileName"] = await $steps[
+                            "updatePrintableFileName"
+                          ];
+                        }
+
+                        $steps["updateDialogOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen"] != null &&
+                          typeof $steps["updateDialogOpen"] === "object" &&
+                          typeof $steps["updateDialogOpen"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen"] = await $steps[
+                            "updateDialogOpen"
+                          ];
+                        }
+                      }}
+                      src={{
+                        src: "/plasmic/barnama/images/poster2Minjpg.jpg",
+                        fullWidth: 3000,
+                        fullHeight: 2250,
+                        aspectRatio: undefined
+                      }}
+                    />
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__ubVgg)}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__znDb5)}
+                      displayHeight={"166px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"459px"}
+                      loading={"lazy"}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePrintableFileName"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFileName"]
+                                },
+                                operation: 0,
+                                value: "enter with one company"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePrintableFileName"] != null &&
+                          typeof $steps["updatePrintableFileName"] ===
+                            "object" &&
+                          typeof $steps["updatePrintableFileName"].then ===
+                            "function"
+                        ) {
+                          $steps["updatePrintableFileName"] = await $steps[
+                            "updatePrintableFileName"
+                          ];
+                        }
+
+                        $steps["updateDialogOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen"] != null &&
+                          typeof $steps["updateDialogOpen"] === "object" &&
+                          typeof $steps["updateDialogOpen"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen"] = await $steps[
+                            "updateDialogOpen"
+                          ];
+                        }
+                      }}
+                      src={{
+                        src: "/plasmic/barnama/images/poster1Minjpg.jpg",
+                        fullWidth: 3000,
+                        fullHeight: 2250,
+                        aspectRatio: undefined
+                      }}
+                    />
+
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__di9Jz)}
+                      displayHeight={"214px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"465px"}
+                      loading={"lazy"}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePrintableFileName"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFileName"]
+                                },
+                                operation: 0,
+                                value: "please be quiet"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePrintableFileName"] != null &&
+                          typeof $steps["updatePrintableFileName"] ===
+                            "object" &&
+                          typeof $steps["updatePrintableFileName"].then ===
+                            "function"
+                        ) {
+                          $steps["updatePrintableFileName"] = await $steps[
+                            "updatePrintableFileName"
+                          ];
+                        }
+
+                        $steps["updateDialogOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen"] != null &&
+                          typeof $steps["updateDialogOpen"] === "object" &&
+                          typeof $steps["updateDialogOpen"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen"] = await $steps[
+                            "updateDialogOpen"
+                          ];
+                        }
+                      }}
+                      src={{
+                        src: "/plasmic/barnama/images/poster3Minjpg.jpg",
+                        fullWidth: 3000,
+                        fullHeight: 2250,
+                        aspectRatio: undefined
+                      }}
+                    />
+                  </Stack__>
+                </Stack__>
+              </Stack__>
+            </Stack__>
+            <Dialog
+              data-plasmic-name={"dialog"}
+              data-plasmic-override={overrides.dialog}
+              body={
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__bCWfe)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bDcA2
+                    )}
+                  >
+                    {
+                      "\u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u062a\u0644\u0641\u0646 \u0647\u0645\u0631\u0627\u0647 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f:"
+                    }
+                  </div>
+                  <TextInput
+                    data-plasmic-name={"contact"}
+                    data-plasmic-override={overrides.contact}
+                    className={classNames("__wab_instance", sty.contact)}
+                    endIcon={
+                      <Icon16Icon
+                        className={classNames(projectcss.all, sty.svg__a5ZNh)}
                         role={"img"}
                       />
                     }
-                    target={true}
+                    onChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["contact", "value"])(
+                        (e => e.target?.value).apply(null, eventArgs)
+                      );
+                    }}
+                    placeholder={"09134455666"}
+                    required={false}
+                    showEndIcon={true}
+                    startIcon={
+                      <Icon16Icon
+                        className={classNames(projectcss.all, sty.svg__zRwLn)}
+                        role={"img"}
+                      />
+                    }
+                    value={
+                      generateStateValueProp($state, ["contact", "value"]) ?? ""
+                    }
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jEdk1
+                    )}
                   >
-                    {"\u062f\u0627\u0646\u0644\u0648\u062f"}
+                    {
+                      "\u062a\u0627 \u062d\u062f\u0627\u06a9\u062b\u0631 \u06f1 \u0631\u0648\u0632 \u06a9\u0627\u0631\u06cc \u0641\u0627\u06cc\u0644 \u062f\u0631\u062e\u0648\u0627\u0633\u062a\u06cc\u200c\u062a\u0627\u0646 \u0631\u0648 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."
+                    }
+                  </div>
+                  <Button
+                    className={classNames("__wab_instance", sty.button__scTPc)}
+                    color={"blue"}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDialogOpen2"] = !/^[0-9۰-۹]{11}$/.test(
+                        $state.contact.value.trim()
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u062e\u0648\u062f \u0631\u0627 \u0628\u0647 \u062f\u0631\u0633\u062a\u06cc \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                "top-center",
+                                5000
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpen2"] != null &&
+                        typeof $steps["updateDialogOpen2"] === "object" &&
+                        typeof $steps["updateDialogOpen2"].then === "function"
+                      ) {
+                        $steps["updateDialogOpen2"] = await $steps[
+                          "updateDialogOpen2"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = !!/^[0-9۰-۹]{11}$/.test(
+                        $state.contact.value.trim()
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://srezas-n8n.darkube.app/webhook/request-printable-file",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      user_id: $ctx.query.user_id,
+                                      printable_file_name:
+                                        $state.printableFileName,
+                                      phone: $state.contact.value
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateDialogOpen"] = !!/^[0-9۰-۹]{11}$/.test(
+                        $state.contact.value.trim()
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog", "open"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpen"] != null &&
+                        typeof $steps["updateDialogOpen"] === "object" &&
+                        typeof $steps["updateDialogOpen"].then === "function"
+                      ) {
+                        $steps["updateDialogOpen"] = await $steps[
+                          "updateDialogOpen"
+                        ];
+                      }
+
+                      $steps["updateDialogOpen3"] = !!/^[0-9۰-۹]{11}$/.test(
+                        $state.contact.value.trim()
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f",
+                                "top-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpen3"] != null &&
+                        typeof $steps["updateDialogOpen3"] === "object" &&
+                        typeof $steps["updateDialogOpen3"].then === "function"
+                      ) {
+                        $steps["updateDialogOpen3"] = await $steps[
+                          "updateDialogOpen3"
+                        ];
+                      }
+                    }}
+                    showStartIcon={true}
+                    size={"compact"}
+                    startIcon={
+                      <Icon17Icon
+                        className={classNames(projectcss.all, sty.svg__uCmKt)}
+                        role={"img"}
+                      />
+                    }
+                    submitsForm={false}
+                  >
+                    {
+                      "\u0627\u0631\u0633\u0627\u0644 \u062f\u0631\u062e\u0648\u0627\u0633\u062a"
+                    }
                   </Button>
                 </Stack__>
-              ) : null}
-            </ApiRequest>
+              }
+              className={classNames("__wab_instance", sty.dialog)}
+              onOpenChange={generateStateOnChangeProp($state, [
+                "dialog",
+                "open"
+              ])}
+              open={generateStateValueProp($state, ["dialog", "open"])}
+              title={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jRnLz
+                  )}
+                >
+                  {
+                    "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0641\u0627\u06cc\u0644"
+                  }
+                </div>
+              }
+              trigger={null}
+            />
+
+            {(() => {
+              const child$Props = {
+                bordered: true,
+                className: classNames("__wab_instance", sty.collapse),
+                expandIconPosition: "end",
+                ghost: false,
+                headerClass: classNames({ [sty["pcls_8LURFZP-fbCY"]]: true }),
+                label2: (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gRkXe
+                    )}
+                  >
+                    {
+                      "\u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u06cc \u062f\u0627\u0631\u06cc\u062f\u061f"
+                    }
+                  </div>
+                ),
+                onChange: generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "open",
+                  ["collapse", "open"],
+                  AntdSingleCollapse_Helpers
+                ),
+                open: generateStateValueProp($state, ["collapse", "open"]),
+                showArrow: true
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "open",
+                    plasmicStateName: "collapse.open"
+                  }
+                ],
+                [],
+                AntdSingleCollapse_Helpers ?? {},
+                child$Props
+              );
+
+              return (
+                <AntdSingleCollapse
+                  data-plasmic-name={"collapse"}
+                  data-plasmic-override={overrides.collapse}
+                  {...child$Props}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__lzoHs)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__fmgt2
+                      )}
+                    >
+                      {
+                        "\u0627\u06af\u0631 \u0628\u0631\u0627\u06cc \u062a\u0633\u0647\u06cc\u0644 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u06cc\u0627 \u062a\u0628\u0644\u06cc\u063a \u067e\u0631\u0648\u0641\u0627\u06cc\u0644\u062a\u0627\u0646 \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u06cc \u062f\u0627\u0631\u06cc\u062f \u06cc\u0627 \u062c\u0627\u06cc \u062e\u0627\u0644\u06cc \u0622\u06cc\u062a\u0645\u06cc \u0631\u0627 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0628\u0627\u06a9\u0633 \u067e\u0627\u06cc\u06cc\u0646 \u0628\u0631\u0627\u06cc \u0645\u0627 \u0634\u0631\u062d \u0628\u062f\u0647\u06cc\u062f:"
+                      }
+                    </div>
+                    <textarea
+                      data-plasmic-name={"textarea"}
+                      data-plasmic-override={overrides.textarea}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.textarea,
+                        sty.textarea
+                      )}
+                      onChange={e => {
+                        generateStateOnChangeProp($state, [
+                          "textarea",
+                          "value"
+                        ])(e.target.value);
+                      }}
+                      placeholder={
+                        "\u0645\u062a\u0646 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f..."
+                      }
+                      ref={ref => {
+                        $refs["textarea"] = ref;
+                      }}
+                      value={
+                        generateStateValueProp($state, ["textarea", "value"]) ??
+                        ""
+                      }
+                    />
+
+                    <Button
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button__nmH38
+                      )}
+                      color={"blue"}
+                      endIcon={
+                        <React.Fragment>
+                          <Icon6Icon
+                            data-plasmic-name={"x4"}
+                            data-plasmic-override={overrides.x4}
+                            className={classNames(projectcss.all, sty.x4)}
+                            role={"img"}
+                          />
+
+                          <Icon11Icon
+                            data-plasmic-name={"whatsapp4"}
+                            data-plasmic-override={overrides.whatsapp4}
+                            className={classNames(
+                              projectcss.all,
+                              sty.whatsapp4
+                            )}
+                            role={"img"}
+                          />
+
+                          <Icon7Icon
+                            data-plasmic-name={"telegram4"}
+                            data-plasmic-override={overrides.telegram4}
+                            className={classNames(
+                              projectcss.all,
+                              sty.telegram4
+                            )}
+                            role={"img"}
+                          />
+
+                          <Icon9Icon
+                            data-plasmic-name={"eitaa4"}
+                            data-plasmic-override={overrides.eitaa4}
+                            className={classNames(projectcss.all, sty.eitaa4)}
+                            role={"img"}
+                          />
+
+                          <Icon17Icon
+                            data-plasmic-name={"link3"}
+                            data-plasmic-override={overrides.link3}
+                            className={classNames(projectcss.all, sty.link3)}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateDialogOpen2"] =
+                          !$state.textarea.value.trim()
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "error",
+                                    "\u0644\u0637\u0641\u0627\u064b \u0627\u0628\u062a\u062f\u0627 \u0645\u062a\u0646 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                    "top-center",
+                                    5000
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateDialogOpen2"] != null &&
+                          typeof $steps["updateDialogOpen2"] === "object" &&
+                          typeof $steps["updateDialogOpen2"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen2"] = await $steps[
+                            "updateDialogOpen2"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] =
+                          !!$state.textarea.value.trim()
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://srezas-n8n.darkube.app/webhook/improvement-suggestion",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          user_id: $ctx.query.user_id,
+                                          response: $state.textarea.value
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateDialogOpen3"] =
+                          !!$state.textarea.value.trim()
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    undefined,
+                                    "\u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0631\u0633\u0627\u0644 \u0634\u062f",
+                                    "top-center"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateDialogOpen3"] != null &&
+                          typeof $steps["updateDialogOpen3"] === "object" &&
+                          typeof $steps["updateDialogOpen3"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen3"] = await $steps[
+                            "updateDialogOpen3"
+                          ];
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                      submitsForm={false}
+                    >
+                      {"\u0627\u0631\u0633\u0627\u0644"}
+                    </Button>
+                  </Stack__>
+                </AntdSingleCollapse>
+              );
+            })()}
           </section>
         </div>
       </div>
@@ -1408,12 +1798,12 @@ const PlasmicDescendants = {
     "h2",
     "fragmentprofile",
     "loadingSvg",
+    "shareButtons",
     "link6",
     "x12",
     "whatsapp12",
     "telegram12",
     "eitaa12",
-    "shareButtons",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1429,52 +1819,27 @@ const PlasmicDescendants = {
     "whatsapp3",
     "telegram3",
     "eitaa3",
-    "twitterButton",
+    "dialog",
+    "contact",
+    "collapse",
+    "textarea",
     "x4",
     "whatsapp4",
     "telegram4",
     "eitaa4",
-    "fragmentbooking",
-    "link7",
-    "x13",
-    "whatsapp13",
-    "telegram13",
-    "eitaa13",
-    "shareButtons2",
-    "eitaaButton2",
-    "x6",
-    "whatsapp6",
-    "telegram6",
-    "eitaa6",
-    "whatsappButton2",
-    "x9",
-    "whatsapp9",
-    "telegram9",
-    "eitaa9",
-    "telegramButton2",
-    "x10",
-    "whatsapp10",
-    "telegram10",
-    "eitaa10",
-    "twitterButton2",
-    "x11",
-    "whatsapp11",
-    "telegram11",
-    "eitaa11",
-    "fragmentbusinessCard",
-    "img"
+    "link3"
   ],
   section: [
     "section",
     "h2",
     "fragmentprofile",
     "loadingSvg",
+    "shareButtons",
     "link6",
     "x12",
     "whatsapp12",
     "telegram12",
     "eitaa12",
-    "shareButtons",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1490,51 +1855,26 @@ const PlasmicDescendants = {
     "whatsapp3",
     "telegram3",
     "eitaa3",
-    "twitterButton",
+    "dialog",
+    "contact",
+    "collapse",
+    "textarea",
     "x4",
     "whatsapp4",
     "telegram4",
     "eitaa4",
-    "fragmentbooking",
-    "link7",
-    "x13",
-    "whatsapp13",
-    "telegram13",
-    "eitaa13",
-    "shareButtons2",
-    "eitaaButton2",
-    "x6",
-    "whatsapp6",
-    "telegram6",
-    "eitaa6",
-    "whatsappButton2",
-    "x9",
-    "whatsapp9",
-    "telegram9",
-    "eitaa9",
-    "telegramButton2",
-    "x10",
-    "whatsapp10",
-    "telegram10",
-    "eitaa10",
-    "twitterButton2",
-    "x11",
-    "whatsapp11",
-    "telegram11",
-    "eitaa11",
-    "fragmentbusinessCard",
-    "img"
+    "link3"
   ],
   h2: ["h2"],
   fragmentprofile: [
     "fragmentprofile",
     "loadingSvg",
+    "shareButtons",
     "link6",
     "x12",
     "whatsapp12",
     "telegram12",
     "eitaa12",
-    "shareButtons",
     "eitaaButton",
     "x5",
     "whatsapp5",
@@ -1549,42 +1889,37 @@ const PlasmicDescendants = {
     "x3",
     "whatsapp3",
     "telegram3",
-    "eitaa3",
-    "twitterButton",
-    "x4",
-    "whatsapp4",
-    "telegram4",
-    "eitaa4"
+    "eitaa3"
   ],
   loadingSvg: ["loadingSvg"],
+  shareButtons: [
+    "shareButtons",
+    "link6",
+    "x12",
+    "whatsapp12",
+    "telegram12",
+    "eitaa12",
+    "eitaaButton",
+    "x5",
+    "whatsapp5",
+    "telegram5",
+    "eitaa5",
+    "whatsappButton",
+    "x2",
+    "whatsapp2",
+    "telegram2",
+    "eitaa2",
+    "telegramButton",
+    "x3",
+    "whatsapp3",
+    "telegram3",
+    "eitaa3"
+  ],
   link6: ["link6"],
   x12: ["x12"],
   whatsapp12: ["whatsapp12"],
   telegram12: ["telegram12"],
   eitaa12: ["eitaa12"],
-  shareButtons: [
-    "shareButtons",
-    "eitaaButton",
-    "x5",
-    "whatsapp5",
-    "telegram5",
-    "eitaa5",
-    "whatsappButton",
-    "x2",
-    "whatsapp2",
-    "telegram2",
-    "eitaa2",
-    "telegramButton",
-    "x3",
-    "whatsapp3",
-    "telegram3",
-    "eitaa3",
-    "twitterButton",
-    "x4",
-    "whatsapp4",
-    "telegram4",
-    "eitaa4"
-  ],
   eitaaButton: ["eitaaButton", "x5", "whatsapp5", "telegram5", "eitaa5"],
   x5: ["x5"],
   whatsapp5: ["whatsapp5"],
@@ -1600,108 +1935,23 @@ const PlasmicDescendants = {
   whatsapp3: ["whatsapp3"],
   telegram3: ["telegram3"],
   eitaa3: ["eitaa3"],
-  twitterButton: ["twitterButton", "x4", "whatsapp4", "telegram4", "eitaa4"],
+  dialog: ["dialog", "contact"],
+  contact: ["contact"],
+  collapse: [
+    "collapse",
+    "textarea",
+    "x4",
+    "whatsapp4",
+    "telegram4",
+    "eitaa4",
+    "link3"
+  ],
+  textarea: ["textarea"],
   x4: ["x4"],
   whatsapp4: ["whatsapp4"],
   telegram4: ["telegram4"],
   eitaa4: ["eitaa4"],
-  fragmentbooking: [
-    "fragmentbooking",
-    "link7",
-    "x13",
-    "whatsapp13",
-    "telegram13",
-    "eitaa13",
-    "shareButtons2",
-    "eitaaButton2",
-    "x6",
-    "whatsapp6",
-    "telegram6",
-    "eitaa6",
-    "whatsappButton2",
-    "x9",
-    "whatsapp9",
-    "telegram9",
-    "eitaa9",
-    "telegramButton2",
-    "x10",
-    "whatsapp10",
-    "telegram10",
-    "eitaa10",
-    "twitterButton2",
-    "x11",
-    "whatsapp11",
-    "telegram11",
-    "eitaa11"
-  ],
-  link7: ["link7"],
-  x13: ["x13"],
-  whatsapp13: ["whatsapp13"],
-  telegram13: ["telegram13"],
-  eitaa13: ["eitaa13"],
-  shareButtons2: [
-    "shareButtons2",
-    "eitaaButton2",
-    "x6",
-    "whatsapp6",
-    "telegram6",
-    "eitaa6",
-    "whatsappButton2",
-    "x9",
-    "whatsapp9",
-    "telegram9",
-    "eitaa9",
-    "telegramButton2",
-    "x10",
-    "whatsapp10",
-    "telegram10",
-    "eitaa10",
-    "twitterButton2",
-    "x11",
-    "whatsapp11",
-    "telegram11",
-    "eitaa11"
-  ],
-  eitaaButton2: ["eitaaButton2", "x6", "whatsapp6", "telegram6", "eitaa6"],
-  x6: ["x6"],
-  whatsapp6: ["whatsapp6"],
-  telegram6: ["telegram6"],
-  eitaa6: ["eitaa6"],
-  whatsappButton2: [
-    "whatsappButton2",
-    "x9",
-    "whatsapp9",
-    "telegram9",
-    "eitaa9"
-  ],
-  x9: ["x9"],
-  whatsapp9: ["whatsapp9"],
-  telegram9: ["telegram9"],
-  eitaa9: ["eitaa9"],
-  telegramButton2: [
-    "telegramButton2",
-    "x10",
-    "whatsapp10",
-    "telegram10",
-    "eitaa10"
-  ],
-  x10: ["x10"],
-  whatsapp10: ["whatsapp10"],
-  telegram10: ["telegram10"],
-  eitaa10: ["eitaa10"],
-  twitterButton2: [
-    "twitterButton2",
-    "x11",
-    "whatsapp11",
-    "telegram11",
-    "eitaa11"
-  ],
-  x11: ["x11"],
-  whatsapp11: ["whatsapp11"],
-  telegram11: ["telegram11"],
-  eitaa11: ["eitaa11"],
-  fragmentbusinessCard: ["fragmentbusinessCard", "img"],
-  img: ["img"]
+  link3: ["link3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1712,12 +1962,12 @@ type NodeDefaultElementType = {
   h2: "h2";
   fragmentprofile: typeof ApiRequest;
   loadingSvg: "svg";
+  shareButtons: "div";
   link6: "svg";
   x12: "svg";
   whatsapp12: "svg";
   telegram12: "svg";
   eitaa12: "svg";
-  shareButtons: "div";
   eitaaButton: typeof Button;
   x5: "svg";
   whatsapp5: "svg";
@@ -1733,40 +1983,15 @@ type NodeDefaultElementType = {
   whatsapp3: "svg";
   telegram3: "svg";
   eitaa3: "svg";
-  twitterButton: typeof Button;
+  dialog: typeof Dialog;
+  contact: typeof TextInput;
+  collapse: typeof AntdSingleCollapse;
+  textarea: "textarea";
   x4: "svg";
   whatsapp4: "svg";
   telegram4: "svg";
   eitaa4: "svg";
-  fragmentbooking: typeof ApiRequest;
-  link7: "svg";
-  x13: "svg";
-  whatsapp13: "svg";
-  telegram13: "svg";
-  eitaa13: "svg";
-  shareButtons2: "div";
-  eitaaButton2: typeof Button;
-  x6: "svg";
-  whatsapp6: "svg";
-  telegram6: "svg";
-  eitaa6: "svg";
-  whatsappButton2: typeof Button;
-  x9: "svg";
-  whatsapp9: "svg";
-  telegram9: "svg";
-  eitaa9: "svg";
-  telegramButton2: typeof Button;
-  x10: "svg";
-  whatsapp10: "svg";
-  telegram10: "svg";
-  eitaa10: "svg";
-  twitterButton2: typeof Button;
-  x11: "svg";
-  whatsapp11: "svg";
-  telegram11: "svg";
-  eitaa11: "svg";
-  fragmentbusinessCard: typeof ApiRequest;
-  img: typeof PlasmicImg__;
+  link3: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1833,12 +2058,12 @@ export const PlasmicHomepage = Object.assign(
     h2: makeNodeComponent("h2"),
     fragmentprofile: makeNodeComponent("fragmentprofile"),
     loadingSvg: makeNodeComponent("loadingSvg"),
+    shareButtons: makeNodeComponent("shareButtons"),
     link6: makeNodeComponent("link6"),
     x12: makeNodeComponent("x12"),
     whatsapp12: makeNodeComponent("whatsapp12"),
     telegram12: makeNodeComponent("telegram12"),
     eitaa12: makeNodeComponent("eitaa12"),
-    shareButtons: makeNodeComponent("shareButtons"),
     eitaaButton: makeNodeComponent("eitaaButton"),
     x5: makeNodeComponent("x5"),
     whatsapp5: makeNodeComponent("whatsapp5"),
@@ -1854,40 +2079,15 @@ export const PlasmicHomepage = Object.assign(
     whatsapp3: makeNodeComponent("whatsapp3"),
     telegram3: makeNodeComponent("telegram3"),
     eitaa3: makeNodeComponent("eitaa3"),
-    twitterButton: makeNodeComponent("twitterButton"),
+    dialog: makeNodeComponent("dialog"),
+    contact: makeNodeComponent("contact"),
+    collapse: makeNodeComponent("collapse"),
+    textarea: makeNodeComponent("textarea"),
     x4: makeNodeComponent("x4"),
     whatsapp4: makeNodeComponent("whatsapp4"),
     telegram4: makeNodeComponent("telegram4"),
     eitaa4: makeNodeComponent("eitaa4"),
-    fragmentbooking: makeNodeComponent("fragmentbooking"),
-    link7: makeNodeComponent("link7"),
-    x13: makeNodeComponent("x13"),
-    whatsapp13: makeNodeComponent("whatsapp13"),
-    telegram13: makeNodeComponent("telegram13"),
-    eitaa13: makeNodeComponent("eitaa13"),
-    shareButtons2: makeNodeComponent("shareButtons2"),
-    eitaaButton2: makeNodeComponent("eitaaButton2"),
-    x6: makeNodeComponent("x6"),
-    whatsapp6: makeNodeComponent("whatsapp6"),
-    telegram6: makeNodeComponent("telegram6"),
-    eitaa6: makeNodeComponent("eitaa6"),
-    whatsappButton2: makeNodeComponent("whatsappButton2"),
-    x9: makeNodeComponent("x9"),
-    whatsapp9: makeNodeComponent("whatsapp9"),
-    telegram9: makeNodeComponent("telegram9"),
-    eitaa9: makeNodeComponent("eitaa9"),
-    telegramButton2: makeNodeComponent("telegramButton2"),
-    x10: makeNodeComponent("x10"),
-    whatsapp10: makeNodeComponent("whatsapp10"),
-    telegram10: makeNodeComponent("telegram10"),
-    eitaa10: makeNodeComponent("eitaa10"),
-    twitterButton2: makeNodeComponent("twitterButton2"),
-    x11: makeNodeComponent("x11"),
-    whatsapp11: makeNodeComponent("whatsapp11"),
-    telegram11: makeNodeComponent("telegram11"),
-    eitaa11: makeNodeComponent("eitaa11"),
-    fragmentbusinessCard: makeNodeComponent("fragmentbusinessCard"),
-    img: makeNodeComponent("img"),
+    link3: makeNodeComponent("link3"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

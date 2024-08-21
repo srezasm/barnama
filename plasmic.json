@@ -57,20 +57,6 @@
           "plumeType": "button"
         },
         {
-          "id": "rHSCFPT8-FdV",
-          "name": "NewPage",
-          "type": "managed",
-          "projectId": "v57deDbCRSiUfTDw1tW741",
-          "renderModuleFilePath": "plasmic/barnama/PlasmicNewPage.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/wallpaper.tsx"
-          },
-          "cssFilePath": "plasmic/barnama/PlasmicNewPage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/wallpaper"
-        },
-        {
           "id": "ZhyzlrsmIhLT",
           "name": "Dialog",
           "type": "managed",
@@ -389,7 +375,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -789,7 +776,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
@@ -879,7 +867,8 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

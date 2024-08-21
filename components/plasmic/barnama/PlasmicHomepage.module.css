@@ -65,7 +65,7 @@
   height: auto;
   max-width: 100%;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   min-width: 0;
 }
 .fragmentprofile:global(.__wab_instance) {
@@ -100,7 +100,8 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
+  margin-top: 25px;
   min-width: 0;
   padding: 8px;
 }
@@ -377,8 +378,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-top: 25px;
   min-width: 0;
-  padding: 8px;
+  padding: 8px 8px 0px;
 }
 .freeBox__rYk4 > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -424,7 +426,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 0px 0px 8px;
+  padding: 0px;
 }
 .freeBox__apKhc > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -477,7 +479,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 0px 8px 8px;
+  padding: 0px 8px;
 }
 .freeBox__q56Vb > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -727,6 +729,7 @@
   max-width: 100%;
   object-fit: cover;
   background: none;
+  margin-top: 25px;
   min-width: 0;
 }
 .text__gRkXe {

@@ -1309,6 +1309,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__bDcA2
                     )}
+                    dir={"rtl"}
                   >
                     {
                       "\u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u062a\u0644\u0641\u0646 \u0647\u0645\u0631\u0627\u0647 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f:"
@@ -1349,6 +1350,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__jEdk1
                     )}
+                    dir={"rtl"}
                   >
                     {
                       "\u062a\u0627 \u062d\u062f\u0627\u06a9\u062b\u0631 \u06f1 \u0631\u0648\u0632 \u06a9\u0627\u0631\u06cc \u0641\u0627\u06cc\u0644 \u0631\u0648 \u0628\u0631\u0627\u062a\u0648\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."
@@ -1516,6 +1518,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 </Stack__>
               }
               className={classNames("__wab_instance", sty.dialog)}
+              noTrigger={true}
               onOpenChange={generateStateOnChangeProp($state, [
                 "dialog",
                 "open"

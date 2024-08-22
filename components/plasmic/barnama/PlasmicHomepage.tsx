@@ -1248,7 +1248,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__ubVgg)}
                   >
                     <PlasmicImg__
-                      alt={"enter with one company poster"}
+                      alt={"please keep quiet poster"}
                       className={classNames(sty.img__znDb5)}
                       displayHeight={"166px"}
                       displayMaxHeight={"none"}
@@ -1381,7 +1381,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     />
 
                     <PlasmicImg__
-                      alt={"please keep quiet poster"}
+                      alt={"enter with one company poster"}
                       className={classNames(sty.img__di9Jz)}
                       displayHeight={"214px"}
                       displayMaxHeight={"none"}

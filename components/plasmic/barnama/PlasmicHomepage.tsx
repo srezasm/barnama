@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: b2vEI7YNG0dM/codeComponent
 import Button from "../../Button"; // plasmic-import: fg07TcMEp1vM/component
 import Dialog from "../../Dialog"; // plasmic-import: ZhyzlrsmIhLT/component
@@ -103,6 +104,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
+  analytics?: Flex__<typeof Embed>;
   section?: Flex__<"section">;
   h2?: Flex__<"h2">;
   fragmentprofile?: Flex__<typeof ApiRequest>;
@@ -299,6 +301,15 @@ function PlasmicHomepage__RenderFunc(props: {
             }
           }}
         >
+          <Embed
+            data-plasmic-name={"analytics"}
+            data-plasmic-override={overrides.analytics}
+            className={classNames("__wab_instance", sty.analytics)}
+            code={
+              '<!-- Yandex.Metrika counter -->\n<script type="text/javascript" >\n   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n   m[i].l=1*new Date();\n   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}\n   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n\n   ym(98131041, "init", {\n        clickmap:true,\n        trackLinks:true,\n        accurateTrackBounce:true,\n        webvisor:true\n   });\n</script>\n<noscript><div><img src="https://mc.yandex.ru/watch/98131041" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\n<!-- /Yandex.Metrika counter -->'
+            }
+          />
+
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
@@ -1998,6 +2009,7 @@ function PlasmicHomepage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "analytics",
     "section",
     "h2",
     "fragmentprofile",
@@ -2034,6 +2046,7 @@ const PlasmicDescendants = {
     "eitaa4",
     "link3"
   ],
+  analytics: ["analytics"],
   section: [
     "section",
     "h2",
@@ -2165,6 +2178,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  analytics: typeof Embed;
   section: "section";
   h2: "h2";
   fragmentprofile: typeof ApiRequest;
@@ -2262,6 +2276,7 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    analytics: makeNodeComponent("analytics"),
     section: makeNodeComponent("section"),
     h2: makeNodeComponent("h2"),
     fragmentprofile: makeNodeComponent("fragmentprofile"),

@@ -24,6 +24,10 @@
     grid-column: 4;
   }
 }
+.analytics:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .section {
   display: grid;
   position: relative;

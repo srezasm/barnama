@@ -94,18 +94,18 @@
   background: #ffffff00;
 }
 .rootcolor_telegram {
-  background: #24a1de;
+  background: #232320;
   transform: none;
   filter: none;
 }
 .rootcolor_whatsapp {
-  background: #25d366;
+  background: #232320;
 }
 .rootcolor_twitter {
   background: #000000;
 }
 .rootcolor_eitaa {
-  background: #f08414;
+  background: #232320;
 }
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
@@ -159,13 +159,13 @@
   background: #ffffff00;
 }
 .rootcolor_telegram:hover {
-  background: #1d8abf;
+  background: #24a1de;
 }
 .rootcolor_whatsapp:hover {
-  background: #075e54;
+  background: #25d366;
 }
 .rootcolor_eitaa:hover {
-  background: #c56d12;
+  background: #f08414;
 }
 .root:focus-within {
   box-shadow: 0px 0px 0px 3px #96c7f2;
@@ -481,6 +481,12 @@
 .endIconContainercolor_twitter {
   display: flex;
 }
+.endIconContainercolor_eitaa {
+  display: flex;
+}
+.rootcolor_telegram:hover .endIconContainercolor_telegram {
+  display: flex;
+}
 .slotTargetEndIcon {
   color: #ededec;
 }
@@ -539,7 +545,6 @@
   width: auto;
   height: 1em;
   color: #ededec;
-  display: none;
 }
 .svg__dQz3L {
   position: relative;

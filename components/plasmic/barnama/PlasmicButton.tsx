@@ -269,8 +269,10 @@ function PlasmicButton__RenderFunc(props: {
     useTrigger("useFocusVisibleWithin", {
       isTextInput: false
     });
+  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const triggers = {
-    focusVisibleWithin_root: isRootFocusVisibleWithin
+    focusVisibleWithin_root: isRootFocusVisibleWithin,
+    hover_root: isRootHover
   };
 
   return (
@@ -352,7 +354,10 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootsize_minimal]: hasVariant($state, "size", "minimal")
         }
       )}
-      data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
+      data-plasmic-trigger-props={[
+        triggerRootFocusVisibleWithinProps,
+        triggerRootHoverProps
+      ]}
     >
       {(
         hasVariant($state, "color", "telegram")
@@ -465,6 +470,11 @@ function PlasmicButton__RenderFunc(props: {
         className={classNames(projectcss.all, sty.contentContainer, {
           [sty.contentContainer___focusVisibleWithin]:
             triggers.focusVisibleWithin_root,
+          [sty.contentContainercolor_whatsapp]: hasVariant(
+            $state,
+            "color",
+            "whatsapp"
+          ),
           [sty.contentContainerisDisabled]: hasVariant(
             $state,
             "isDisabled",
@@ -593,6 +603,11 @@ function PlasmicButton__RenderFunc(props: {
         data-plasmic-name={"endIconContainer"}
         data-plasmic-override={overrides.endIconContainer}
         className={classNames(projectcss.all, sty.endIconContainer, {
+          [sty.endIconContainercolor_eitaa]: hasVariant(
+            $state,
+            "color",
+            "eitaa"
+          ),
           [sty.endIconContainercolor_telegram]: hasVariant(
             $state,
             "color",
@@ -625,89 +640,106 @@ function PlasmicButton__RenderFunc(props: {
           )
         })}
       >
-        {renderPlasmicSlot({
-          defaultContents: (
-            <React.Fragment>
-              <Icon6Icon
-                className={classNames(projectcss.all, sty.svg__zcMap)}
-                role={"img"}
-              />
+        {(hasVariant($state, "color", "twitter") ? false : true)
+          ? renderPlasmicSlot({
+              defaultContents: (
+                <React.Fragment>
+                  <Icon6Icon
+                    className={classNames(projectcss.all, sty.svg__zcMap)}
+                    role={"img"}
+                  />
 
-              <Icon11Icon
-                className={classNames(projectcss.all, sty.svg__zev5)}
-                role={"img"}
-              />
+                  <Icon11Icon
+                    className={classNames(projectcss.all, sty.svg__zev5)}
+                    role={"img"}
+                  />
 
-              <Icon7Icon
-                className={classNames(projectcss.all, sty.svg__qSydm)}
-                role={"img"}
-              />
+                  <Icon7Icon
+                    className={classNames(projectcss.all, sty.svg__qSydm)}
+                    role={"img"}
+                  />
 
-              <Icon9Icon
-                className={classNames(projectcss.all, sty.svg__dQz3L)}
-                role={"img"}
-              />
+                  <Icon9Icon
+                    className={classNames(projectcss.all, sty.svg__dQz3L)}
+                    role={"img"}
+                  />
 
-              <Icon12Icon
-                className={classNames(projectcss.all, sty.svg__cEzv1)}
-                role={"img"}
-              />
-            </React.Fragment>
-          ),
-          value: args.endIcon,
-          className: classNames(sty.slotTargetEndIcon, {
-            [sty.slotTargetEndIconcolor_clear]: hasVariant(
-              $state,
-              "color",
-              "clear"
-            ),
-            [sty.slotTargetEndIconcolor_link]: hasVariant(
-              $state,
-              "color",
-              "link"
-            ),
-            [sty.slotTargetEndIconcolor_softBlue]: hasVariant(
-              $state,
-              "color",
-              "softBlue"
-            ),
-            [sty.slotTargetEndIconcolor_softGreen]: hasVariant(
-              $state,
-              "color",
-              "softGreen"
-            ),
-            [sty.slotTargetEndIconcolor_softRed]: hasVariant(
-              $state,
-              "color",
-              "softRed"
-            ),
-            [sty.slotTargetEndIconcolor_softSand]: hasVariant(
-              $state,
-              "color",
-              "softSand"
-            ),
-            [sty.slotTargetEndIconcolor_softYellow]: hasVariant(
-              $state,
-              "color",
-              "softYellow"
-            ),
-            [sty.slotTargetEndIconcolor_white]: hasVariant(
-              $state,
-              "color",
-              "white"
-            ),
-            [sty.slotTargetEndIconcolor_yellow]: hasVariant(
-              $state,
-              "color",
-              "yellow"
-            ),
-            [sty.slotTargetEndIconshowEndIcon]: hasVariant(
-              $state,
-              "showEndIcon",
-              "showEndIcon"
-            )
-          })
-        })}
+                  <Icon12Icon
+                    className={classNames(projectcss.all, sty.svg__cEzv1)}
+                    role={"img"}
+                  />
+                </React.Fragment>
+              ),
+              value: args.endIcon,
+              className: classNames(sty.slotTargetEndIcon, {
+                [sty.slotTargetEndIconcolor_clear]: hasVariant(
+                  $state,
+                  "color",
+                  "clear"
+                ),
+                [sty.slotTargetEndIconcolor_link]: hasVariant(
+                  $state,
+                  "color",
+                  "link"
+                ),
+                [sty.slotTargetEndIconcolor_softBlue]: hasVariant(
+                  $state,
+                  "color",
+                  "softBlue"
+                ),
+                [sty.slotTargetEndIconcolor_softGreen]: hasVariant(
+                  $state,
+                  "color",
+                  "softGreen"
+                ),
+                [sty.slotTargetEndIconcolor_softRed]: hasVariant(
+                  $state,
+                  "color",
+                  "softRed"
+                ),
+                [sty.slotTargetEndIconcolor_softSand]: hasVariant(
+                  $state,
+                  "color",
+                  "softSand"
+                ),
+                [sty.slotTargetEndIconcolor_softYellow]: hasVariant(
+                  $state,
+                  "color",
+                  "softYellow"
+                ),
+                [sty.slotTargetEndIconcolor_telegram]: hasVariant(
+                  $state,
+                  "color",
+                  "telegram"
+                ),
+                [sty.slotTargetEndIconcolor_twitter]: hasVariant(
+                  $state,
+                  "color",
+                  "twitter"
+                ),
+                [sty.slotTargetEndIconcolor_whatsapp]: hasVariant(
+                  $state,
+                  "color",
+                  "whatsapp"
+                ),
+                [sty.slotTargetEndIconcolor_white]: hasVariant(
+                  $state,
+                  "color",
+                  "white"
+                ),
+                [sty.slotTargetEndIconcolor_yellow]: hasVariant(
+                  $state,
+                  "color",
+                  "yellow"
+                ),
+                [sty.slotTargetEndIconshowEndIcon]: hasVariant(
+                  $state,
+                  "showEndIcon",
+                  "showEndIcon"
+                )
+              })
+            })
+          : null}
       </div>
     </Stack__>
   ) as React.ReactElement | null;

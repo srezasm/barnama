@@ -19,22 +19,57 @@
   width: auto;
   height: 1em;
 }
-.svg__tAv2I {
+.svg__bbGb3 {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg__tqjE {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg__ds2Gp {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+}
+.svg__ryTf8 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
+}
+.svg___6UTdK {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+  color: #ededec;
+  display: none;
 }
 .dialogContent:global(.__wab_instance) {
   box-shadow: 0px 4px 16px 0px #00000033;
   background: rgb(255, 255, 255);
-  width: auto;
-  max-width: 100%;
   object-fit: cover;
+  max-width: 100%;
+  min-width: 300px;
   position: relative;
   left: auto;
   top: auto;
-  min-width: 300px;
+  z-index: 1;
+  right: auto;
+  display: block;
   border-radius: 8px;
   padding: 24px;
   border: 1px solid #e2e8f0;

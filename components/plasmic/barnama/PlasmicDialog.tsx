@@ -72,7 +72,11 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: v57deDbCRSiUfT
 import sty from "./PlasmicDialog.module.css"; // plasmic-import: ZhyzlrsmIhLT/css
 
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: Hw4uH64OkDA1/icon
-import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: 3EgpshlPs7dM/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: pwWlXfOSGjYC/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: P-khE6MRpQH5/icon
+import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: SSwrcuzlli4Z/icon
+import Icon9Icon from "./icons/PlasmicIcon__Icon9"; // plasmic-import: Dw9Kw-Ug9oZZ/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: sorZQR68rKUo/icon
 
 createPlasmicElementProxy;
 

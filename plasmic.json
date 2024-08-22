@@ -236,6 +236,31 @@
           "id": "uzkfLRsjz3sb",
           "name": "poster-3-min.jpg",
           "filePath": "../public/plasmic/barnama/images/poster3Minjpg.jpg"
+        },
+        {
+          "id": "6jnl3b3D4XYG",
+          "name": "business-card.jpg",
+          "filePath": "../public/plasmic/barnama/images/businessCardjpg.jpg"
+        },
+        {
+          "id": "M2Ix9YYLwWkS",
+          "name": "Shop_Poster_Frame_Mockup_1.jpg",
+          "filePath": "../public/plasmic/barnama/images/shopPosterFrameMockup1Jpg.jpg"
+        },
+        {
+          "id": "QhvvHVxjde0g",
+          "name": "Poster_Mockup_1.jpg",
+          "filePath": "../public/plasmic/barnama/images/posterMockup1Jpg.jpg"
+        },
+        {
+          "id": "Jk0VVuXD6OC0",
+          "name": "Poster_Mockup_3.jpg",
+          "filePath": "../public/plasmic/barnama/images/posterMockup3Jpg.jpg"
+        },
+        {
+          "id": "o7tmuLMUpOkL",
+          "name": "Poster_Mockup_4.jpg",
+          "filePath": "../public/plasmic/barnama/images/posterMockup4Jpg.jpg"
         }
       ],
       "indirect": false,

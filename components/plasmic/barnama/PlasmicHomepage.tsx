@@ -336,7 +336,7 @@ function PlasmicHomepage__RenderFunc(props: {
               )}
             >
               {
-                "\u0628\u0627 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0635\u0641\u062d\u0647 \u0648 \u0628\u0631\u0646\u062f \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u062a\u0631 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f."
+                "\u0628\u0627 \u06a9\u0645\u06a9 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647\u060c \u062d\u0631\u0641\u0647\u200c\u0627\u06cc\u200c\u062a\u0631 \u0648 \u06a9\u0627\u0631\u0622\u0645\u062f\u062a\u0631 \u062e\u0648\u062f \u0631\u0627 \u062a\u0628\u0644\u06cc\u063a \u06a9\u0646\u06cc\u062f!"
               }
             </div>
             <ApiRequest
@@ -814,7 +814,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     data-plasmic-override={overrides.businessCardImage}
                     alt={"business card"}
                     className={classNames(sty.businessCardImage)}
-                    displayHeight={"470px"}
+                    displayHeight={"338px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
                     displayMinHeight={"0"}
@@ -934,9 +934,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       }
                     }}
                     src={{
-                      src: "/plasmic/barnama/images/businessCardMinjpg.jpg",
-                      fullWidth: 2910,
-                      fullHeight: 2196,
+                      src: "/plasmic/barnama/images/businessCardjpg.jpg",
+                      fullWidth: 1000,
+                      fullHeight: 750,
                       aspectRatio: undefined
                     }}
                   />
@@ -1075,9 +1075,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       }}
                       src={{
-                        src: "/plasmic/barnama/images/posterMinjpg.jpg",
-                        fullWidth: 3000,
-                        fullHeight: 2250,
+                        src: "/plasmic/barnama/images/shopPosterFrameMockup1Jpg.jpg",
+                        fullWidth: 1000,
+                        fullHeight: 750,
                         aspectRatio: undefined
                       }}
                     />
@@ -1206,9 +1206,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       }}
                       src={{
-                        src: "/plasmic/barnama/images/poster2Minjpg.jpg",
-                        fullWidth: 3000,
-                        fullHeight: 2250,
+                        src: "/plasmic/barnama/images/posterMockup4Jpg.jpg",
+                        fullWidth: 1000,
+                        fullHeight: 750,
                         aspectRatio: undefined
                       }}
                     />
@@ -1342,9 +1342,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       }}
                       src={{
-                        src: "/plasmic/barnama/images/poster1Minjpg.jpg",
-                        fullWidth: 3000,
-                        fullHeight: 2250,
+                        src: "/plasmic/barnama/images/posterMockup1Jpg.jpg",
+                        fullWidth: 1000,
+                        fullHeight: 750,
                         aspectRatio: undefined
                       }}
                     />
@@ -1473,9 +1473,9 @@ function PlasmicHomepage__RenderFunc(props: {
                         }
                       }}
                       src={{
-                        src: "/plasmic/barnama/images/poster3Minjpg.jpg",
-                        fullWidth: 3000,
-                        fullHeight: 2250,
+                        src: "/plasmic/barnama/images/posterMockup3Jpg.jpg",
+                        fullWidth: 1000,
+                        fullHeight: 750,
                         aspectRatio: undefined
                       }}
                     />
@@ -1558,18 +1558,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     }
                   />
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jEdk1
-                    )}
-                    dir={"rtl"}
-                  >
-                    {
-                      "\u062a\u0627 \u062d\u062f\u0627\u06a9\u062b\u0631 \u06f1 \u0631\u0648\u0632 \u06a9\u0627\u0631\u06cc \u0641\u0627\u06cc\u0644 \u0631\u0648 \u0628\u0631\u0627\u062a\u0648\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."
-                    }
-                  </div>
                   <Button
                     className={classNames("__wab_instance", sty.button__scTPc)}
                     color={"blue"}
@@ -1695,8 +1683,9 @@ function PlasmicHomepage__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 undefined,
-                                "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f",
-                                "top-center"
+                                "\u062d\u062f\u0627\u06a9\u062b\u0631 \u062a\u0627 \u0641\u0631\u062f\u0627 \u0641\u0627\u06cc\u0644 \u0628\u0631\u0627\u06cc\u062a\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u062e\u0648\u0627\u0647\u062f \u0634\u062f",
+                                "top-center",
+                                5000
                               ]
                             };
                             return $globalActions["Fragment.showToast"]?.apply(
@@ -1725,9 +1714,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     }
                     submitsForm={false}
                   >
-                    {
-                      "\u0627\u0631\u0633\u0627\u0644 \u062f\u0631\u062e\u0648\u0627\u0633\u062a"
-                    }
+                    {"\u062f\u0631\u06cc\u0627\u0641\u062a"}
                   </Button>
                 </Stack__>
               }
@@ -1747,7 +1734,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0641\u0627\u06cc\u0644"
+                    "\u062f\u0631\u06cc\u0627\u0641\u062a \u0641\u0627\u06cc\u0644"
                   }
                 </div>
               }

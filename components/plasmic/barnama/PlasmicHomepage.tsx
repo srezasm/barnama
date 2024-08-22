@@ -128,6 +128,7 @@ export type PlasmicHomepage__OverridesType = {
   whatsapp3?: Flex__<"svg">;
   telegram3?: Flex__<"svg">;
   eitaa3?: Flex__<"svg">;
+  businessCardImage?: Flex__<typeof PlasmicImg__>;
   dialog?: Flex__<typeof Dialog>;
   contact?: Flex__<typeof TextInput>;
   collapse?: Flex__<typeof AntdSingleCollapse>;
@@ -198,7 +199,7 @@ function PlasmicHomepage__RenderFunc(props: {
         path: "dialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "printableFileName",
@@ -225,6 +226,12 @@ function PlasmicHomepage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "printableFilePreview",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -803,8 +810,10 @@ function PlasmicHomepage__RenderFunc(props: {
               >
                 <div className={classNames(projectcss.all, sty.freeBox__sBzvu)}>
                   <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__wBxS3)}
+                    data-plasmic-name={"businessCardImage"}
+                    data-plasmic-override={overrides.businessCardImage}
+                    alt={"business card"}
+                    className={classNames(sty.businessCardImage)}
                     displayHeight={"470px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
@@ -823,7 +832,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 variablePath: ["printableFileName"]
                               },
                               operation: 0,
-                              value: "business card"
+                              value: event.target.alt
                             };
                             return (({
                               variable,
@@ -887,6 +896,42 @@ function PlasmicHomepage__RenderFunc(props: {
                           "updateDialogOpen"
                         ];
                       }
+
+                      $steps["updateDialogOpen3"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["printableFilePreview"]
+                              },
+                              operation: 0,
+                              value: event.target.src
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogOpen3"] != null &&
+                        typeof $steps["updateDialogOpen3"] === "object" &&
+                        typeof $steps["updateDialogOpen3"].then === "function"
+                      ) {
+                        $steps["updateDialogOpen3"] = await $steps[
+                          "updateDialogOpen3"
+                        ];
+                      }
                     }}
                     src={{
                       src: "/plasmic/barnama/images/businessCardMinjpg.jpg",
@@ -907,7 +952,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__aCqHj)}
                   >
                     <PlasmicImg__
-                      alt={""}
+                      alt={"doctor page poster"}
                       className={classNames(sty.img__qllNf)}
                       displayHeight={"212px"}
                       displayMaxHeight={"none"}
@@ -927,7 +972,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   variablePath: ["printableFileName"]
                                 },
                                 operation: 0,
-                                value: "doctor page poster"
+                                value: event.target.alt
                               };
                               return (({
                                 variable,
@@ -992,6 +1037,42 @@ function PlasmicHomepage__RenderFunc(props: {
                             "updateDialogOpen"
                           ];
                         }
+
+                        $steps["updateDialogOpen2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFilePreview"]
+                                },
+                                operation: 0,
+                                value: event.target.src
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen2"] != null &&
+                          typeof $steps["updateDialogOpen2"] === "object" &&
+                          typeof $steps["updateDialogOpen2"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen2"] = await $steps[
+                            "updateDialogOpen2"
+                          ];
+                        }
                       }}
                       src={{
                         src: "/plasmic/barnama/images/posterMinjpg.jpg",
@@ -1002,7 +1083,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     />
 
                     <PlasmicImg__
-                      alt={""}
+                      alt={"enter without company poster"}
                       className={classNames(sty.img__phkRc)}
                       displayHeight={"183px"}
                       displayMaxHeight={"none"}
@@ -1022,7 +1103,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   variablePath: ["printableFileName"]
                                 },
                                 operation: 0,
-                                value: "enter without company"
+                                value: event.target.alt
                               };
                               return (({
                                 variable,
@@ -1087,6 +1168,42 @@ function PlasmicHomepage__RenderFunc(props: {
                             "updateDialogOpen"
                           ];
                         }
+
+                        $steps["updateDialogOpen2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFilePreview"]
+                                },
+                                operation: 0,
+                                value: event.target.src
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen2"] != null &&
+                          typeof $steps["updateDialogOpen2"] === "object" &&
+                          typeof $steps["updateDialogOpen2"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen2"] = await $steps[
+                            "updateDialogOpen2"
+                          ];
+                        }
                       }}
                       src={{
                         src: "/plasmic/barnama/images/poster2Minjpg.jpg",
@@ -1102,7 +1219,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__ubVgg)}
                   >
                     <PlasmicImg__
-                      alt={""}
+                      alt={"enter with one company poster"}
                       className={classNames(sty.img__znDb5)}
                       displayHeight={"166px"}
                       displayMaxHeight={"none"}
@@ -1122,7 +1239,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   variablePath: ["printableFileName"]
                                 },
                                 operation: 0,
-                                value: "enter with one company"
+                                value: event.target.alt
                               };
                               return (({
                                 variable,
@@ -1187,6 +1304,42 @@ function PlasmicHomepage__RenderFunc(props: {
                             "updateDialogOpen"
                           ];
                         }
+
+                        $steps["updateDialogOpen2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFilePreview"]
+                                },
+                                operation: 0,
+                                value: event.target.src
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen2"] != null &&
+                          typeof $steps["updateDialogOpen2"] === "object" &&
+                          typeof $steps["updateDialogOpen2"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen2"] = await $steps[
+                            "updateDialogOpen2"
+                          ];
+                        }
                       }}
                       src={{
                         src: "/plasmic/barnama/images/poster1Minjpg.jpg",
@@ -1197,7 +1350,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     />
 
                     <PlasmicImg__
-                      alt={""}
+                      alt={"please keep quiet poster"}
                       className={classNames(sty.img__di9Jz)}
                       displayHeight={"214px"}
                       displayMaxHeight={"none"}
@@ -1217,7 +1370,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                   variablePath: ["printableFileName"]
                                 },
                                 operation: 0,
-                                value: "please be quiet"
+                                value: event.target.alt
                               };
                               return (({
                                 variable,
@@ -1280,6 +1433,42 @@ function PlasmicHomepage__RenderFunc(props: {
                         ) {
                           $steps["updateDialogOpen"] = await $steps[
                             "updateDialogOpen"
+                          ];
+                        }
+
+                        $steps["updateDialogOpen2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["printableFilePreview"]
+                                },
+                                operation: 0,
+                                value: event.target.src
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDialogOpen2"] != null &&
+                          typeof $steps["updateDialogOpen2"] === "object" &&
+                          typeof $steps["updateDialogOpen2"].then === "function"
+                        ) {
+                          $steps["updateDialogOpen2"] = await $steps[
+                            "updateDialogOpen2"
                           ];
                         }
                       }}
@@ -1303,6 +1492,31 @@ function PlasmicHomepage__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__bCWfe)}
                 >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img___29Nz)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={(() => {
+                      try {
+                        return $state.printableFilePreview;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1822,6 +2036,7 @@ const PlasmicDescendants = {
     "whatsapp3",
     "telegram3",
     "eitaa3",
+    "businessCardImage",
     "dialog",
     "contact",
     "collapse",
@@ -1858,6 +2073,7 @@ const PlasmicDescendants = {
     "whatsapp3",
     "telegram3",
     "eitaa3",
+    "businessCardImage",
     "dialog",
     "contact",
     "collapse",
@@ -1938,6 +2154,7 @@ const PlasmicDescendants = {
   whatsapp3: ["whatsapp3"],
   telegram3: ["telegram3"],
   eitaa3: ["eitaa3"],
+  businessCardImage: ["businessCardImage"],
   dialog: ["dialog", "contact"],
   contact: ["contact"],
   collapse: [
@@ -1986,6 +2203,7 @@ type NodeDefaultElementType = {
   whatsapp3: "svg";
   telegram3: "svg";
   eitaa3: "svg";
+  businessCardImage: typeof PlasmicImg__;
   dialog: typeof Dialog;
   contact: typeof TextInput;
   collapse: typeof AntdSingleCollapse;
@@ -2082,6 +2300,7 @@ export const PlasmicHomepage = Object.assign(
     whatsapp3: makeNodeComponent("whatsapp3"),
     telegram3: makeNodeComponent("telegram3"),
     eitaa3: makeNodeComponent("eitaa3"),
+    businessCardImage: makeNodeComponent("businessCardImage"),
     dialog: makeNodeComponent("dialog"),
     contact: makeNodeComponent("contact"),
     collapse: makeNodeComponent("collapse"),

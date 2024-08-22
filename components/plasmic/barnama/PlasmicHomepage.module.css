@@ -458,7 +458,7 @@
   min-width: 0;
   padding: 8px 8px 0px;
 }
-.img__wBxS3 {
+.businessCardImage {
   object-fit: cover;
   max-width: 100%;
   margin-bottom: 0px;
@@ -468,7 +468,7 @@
   cursor: pointer;
   flex-shrink: 0;
 }
-.img__wBxS3 > picture > img {
+.businessCardImage > picture > img {
   object-fit: cover;
 }
 .freeBox__q56Vb {
@@ -605,8 +605,6 @@
   object-fit: cover;
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
-  flex-grow: 0;
-  flex-shrink: 0;
   position: relative;
 }
 .text__jRnLz {
@@ -642,6 +640,13 @@
   > picture
   > img {
   margin-top: 8px;
+}
+.img___29Nz {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img___29Nz > picture > img {
+  object-fit: cover;
 }
 .text__bDcA2 {
   position: relative;
